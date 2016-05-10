@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-05-10T11:04:59.999Z</updated>
+  <updated>2016-05-10T11:40:46.495Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Django开发（富文本）</title>
+    <title>Django中加入富文本编辑器</title>
     <link href="http://blog.pfchai.com/2016/05/Django%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     <id>http://blog.pfchai.com/2016/05/Django中加入富文本编辑器/</id>
     <published>2016-05-10T10:57:46.000Z</published>
-    <updated>2016-05-10T11:04:59.999Z</updated>
+    <updated>2016-05-10T11:40:46.495Z</updated>
     
     <content type="html">&lt;p&gt;目前主流有两个插件，一个是&lt;a href=&quot;http://kindeditor.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;KindEditor&lt;/a&gt;(遵循LGPL v2)，另一个是百度的&lt;a href=&quot;http://ueditor.baidu.com/website/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;uEditor&lt;/a&gt;(遵循MIT协议)&lt;/p&gt;
 &lt;p&gt;KindEditor 是一套开源的在线HTML编辑器，主要用于让用户在网站上获得所见即所得编辑效果，开发人员可以用 KindEditor 把传统的多行文本输入框(textarea)替换为可视化的富文本输入框。 KindEditor 使用 JavaScript 编写，可以无缝地与 Java、.NET、PHP、ASP 等程序集成，比较适合在 CMS、商城、论坛、博客、Wiki、电子邮件等互联网应用上使用。&lt;/p&gt;
