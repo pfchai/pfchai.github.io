@@ -119,9 +119,9 @@
     </summary>
     
     
-      <category term="源码" scheme="http://blog.pfchai.com/tags/%E6%BA%90%E7%A0%81/"/>
-    
       <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
+    
+      <category term="源码" scheme="http://blog.pfchai.com/tags/%E6%BA%90%E7%A0%81/"/>
     
       <category term="Bottle" scheme="http://blog.pfchai.com/tags/Bottle/"/>
     
@@ -246,9 +246,9 @@
     </summary>
     
     
-      <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
-    
       <category term="Django" scheme="http://blog.pfchai.com/tags/Django/"/>
+    
+      <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
     
       <category term="开发" scheme="http://blog.pfchai.com/tags/%E5%BC%80%E5%8F%91/"/>
     
