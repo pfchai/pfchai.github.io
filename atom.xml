@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-07-19T12:36:03.400Z</updated>
+  <updated>2016-07-19T12:41:03.056Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://blog.pfchai.com/2016/07/%E9%AB%98%E9%80%BC%E6%A0%BC%E4%BD%BF%E7%94%A8MATLAB%E4%B9%8B-%E5%B0%91%E5%86%99for%E5%BE%AA%E7%8E%AF/"/>
     <id>http://blog.pfchai.com/2016/07/高逼格使用MATLAB之-少写for循环/</id>
     <published>2016-07-19T12:34:44.000Z</published>
-    <updated>2016-07-19T12:36:03.400Z</updated>
+    <updated>2016-07-19T12:41:03.056Z</updated>
     
     <content type="html">&lt;p&gt;看到太多的人把MATLAB当成C语言来写，甚至像矩阵求和这种的，都要写个for循环来做，不仅整个程序看起来很乱，而且不管开发效率还是程序执行效率都降低了太多。我在研一学人工神经网络这门课程的时候，就有看过别人写的一些MATLAB程序，用矩阵的一些操作代替了for循环，程序看起来简洁干净，效率也有提高。&lt;br&gt;这篇文章接下来会介绍几个函数，能把原来需要用for循环来处理矩阵的，通过自带函数替换掉for循环。用这些函数的好处是代码会简洁很多，同时MATLAB也会优化操作过程，提高效率。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
