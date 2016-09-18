@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-08-28T14:25:07.335Z</updated>
+  <updated>2016-09-18T09:39:41.613Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -16,15 +16,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Python 解析&amp;#开头的字符串</title>
+    <link href="http://blog.pfchai.com/2016/09/Python-%E8%A7%A3%E6%9E%90-%E5%BC%80%E5%A4%B4%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
+    <id>http://blog.pfchai.com/2016/09/Python-解析-开头的字符串/</id>
+    <published>2016-09-18T09:38:09.000Z</published>
+    <updated>2016-09-18T09:39:41.613Z</updated>
+    
+    <content type="html">&lt;p&gt;爬虫的时候，发现网页中好多中文都是用&amp;amp;#开头的一串字符表示，搞不懂是什么编码，直到看到知乎上的一个&lt;a href=&quot;http://zhihu.com/question/21390312/answer/18091465&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;回答&lt;/a&gt;。&lt;br&gt;引用原作者的话，这一串字符是HTML、XML等SGML类语言的转义序列，不是编码。而以&lt;code&gt;&amp;amp;#&lt;/code&gt;开头的叫numeric character reference（NCR），&lt;code&gt;&amp;amp;#&lt;/code&gt;后面可以跟十进制数字或是以&lt;code&gt;x&lt;/code&gt;开头的16进制数字，数字为目标字符的Unicode code point，并以&lt;code&gt;；&lt;/code&gt;结束。具体的解释可以看&lt;a href=&quot;http://zhihu.com/question/21390312/answer/18091465&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原答案&lt;/a&gt;或是自行搜索。&lt;/p&gt;
+&lt;p&gt;Python 中处理这种转义序列也很简单，直接使用标准库中的HTMLParser解析即可：&lt;br&gt;&lt;figure class=&quot;highlight gradle&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; HTMLParser &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; HTMLParser&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; HTMLParser().unescape(&lt;span class=&quot;string&quot;&gt;&#39;&amp;amp;#20013;&amp;amp;#22269;&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;爬虫的时候，发现网页中好多中文都是用&amp;amp;#开头的一串字符表示，搞不懂是什么编码，直到看到知乎上的一个&lt;a href=&quot;http://zhihu.com/question/21390312/answer/18091465&quot; target=&quot;_blank&quot; rel=&quot;ex
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Clojure 爬虫：抓取花瓣网图片</title>
     <link href="http://blog.pfchai.com/2016/08/Clojure-%E7%88%AC%E8%99%AB%EF%BC%9A%E6%8A%93%E5%8F%96%E8%8A%B1%E7%93%A3%E7%BD%91%E5%9B%BE%E7%89%87/"/>
     <id>http://blog.pfchai.com/2016/08/Clojure-爬虫：抓取花瓣网图片/</id>
     <published>2016-08-28T14:10:57.000Z</published>
-    <updated>2016-08-28T14:25:07.335Z</updated>
+    <updated>2016-09-06T13:02:58.897Z</updated>
     
     <content type="html">&lt;p&gt;最近刚看完《Clojure程序设计》，书上的例子都能看懂，但要开始用Clojure还是有点不知道怎么下手，想写个小程序练练手。之前用Python写过一个抓取花瓣网美女画板下图片的小爬虫，爬虫过程很简单，也没有涉及登录验证或是反爬虫之类的，用来熟悉新语言非常合适，就有了这个Clojure版的爬虫。&lt;/p&gt;
 &lt;p&gt;我用Python的实现可以看我之前的&lt;a href=&quot;http://www.cnblogs.com/nan86150/p/4272452.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;。&lt;/p&gt;
-&lt;h2 id=&quot;1-分析网站&quot;&gt;&lt;a href=&quot;#1-分析网站&quot; class=&quot;headerlink&quot; title=&quot;1. 分析网站&quot;&gt;&lt;/a&gt;1. 分析网站&lt;/h2&gt;&lt;p&gt;花瓣网美女画板的地址是：&lt;a href=&quot;http://huaban.com/favorite/beauty/，访问该地址会展示20张美女图片，当浏览到页面底端，浏览器再通过Ajax加载20幅图片。爬虫也分两部分，抓取美女面板首页图片和抓取Ajax加载的图片。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huaban.com/favorite/beauty/，访问该地址会展示20张美女图片，当浏览到页面底端，浏览器再通过Ajax加载20幅图片。爬虫也分两部分，抓取美女面板首页图片和抓取Ajax加载的图片。&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-分析网站&quot;&gt;&lt;a href=&quot;#1-分析网站&quot; class=&quot;headerlink&quot; title=&quot;1. 分析网站&quot;&gt;&lt;/a&gt;1. 分析网站&lt;/h2&gt;&lt;p&gt;花瓣网美女画板的地址是：&lt;a href=&quot;http://huaban.com/favorite/beauty/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huaban.com/favorite/beauty/&lt;/a&gt; ，访问该地址会展示20张美女图片，当浏览到页面底端，浏览器再通过Ajax加载20幅图片。爬虫也分两部分，抓取美女面板首页图片和抓取Ajax加载的图片。&lt;/p&gt;
 &lt;h3 id=&quot;1-1-抓取首页图片&quot;&gt;&lt;a href=&quot;#1-1-抓取首页图片&quot; class=&quot;headerlink&quot; title=&quot;1.1 抓取首页图片&quot;&gt;&lt;/a&gt;1.1 抓取首页图片&lt;/h3&gt;&lt;p&gt;访问 &lt;a href=&quot;http://huaban.com/favorite/beauty/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://huaban.com/favorite/beauty/&lt;/a&gt; 得到的响应如下：&lt;/p&gt;
 &lt;center&gt; &lt;img src=&quot;http://static.zybuluo.com/pfchai/ghlfkbbny65cvdhx1nzm4pe3/image_1ar7joqrl1pp618ed1i2sh3rp38m.png&quot; alt=&quot;image_1ar7joqrl1pp618ed1i2sh3rp38m.png-68.3kB&quot;&gt; &lt;/center&gt;
 
