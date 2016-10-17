@@ -1,15 +1,424 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="半野生程序员"><meta name="google-site-verification" content="vq10mBPkVD41CiN6dV1SlLnAN5LzGd1FsDtgz5akatk"><title>多说评论添加显示浏览器以及操作系统信息 | chai's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/3.0.3/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">多说评论添加显示浏览器以及操作系统信息</h1><a id="logo" href="/.">chai's blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/guestbook/"><i class="fa fa-comments"> 留言</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">多说评论添加显示浏览器以及操作系统信息</h1><div class="post-meta">Jun 16, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/06/多说评论添加显示浏览器以及操作系统信息/" href="/2016/06/多说评论添加显示浏览器以及操作系统信息/#comments" class="ds-thread-count"></a><div class="post-content"><p>想要在多说评论中显示浏览器以及操作系统信息，第一步当然是获取信息，这部分的处理放在多说的embed.js文件中，还有一部分是显示浏览器以及操作系统信息，这部分在多说系统中添加自定义的CSS来实现。</p>
 <a id="more"></a>
-<h2 id="自定义embed-js"><a href="#自定义embed-js" class="headerlink" title="自定义embed.js"></a>自定义embed.js</h2><p>多说默认用到的embed.js是从多说官方提供的，地址是<a href="http://static.duoshuo.com/embed.js" target="_blank" rel="external">http://static.duoshuo.com/embed.js</a><br>这里，我们需要修改embed.js文件，所以，先把官方提供的embed.js文件下载下来，在embed.js文件中增加检测浏览器和操作信息的代码，在embed.js文件顶部添加<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//移动客户端判断开始，作用：在移动客户端显示不同样式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskcheckMobile</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> isiPad = navigator.userAgent.match(<span class="regexp">/iPad/i</span>) != <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(isiPad)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> isMobile=navigator.userAgent.match(<span class="regexp">/iphone|android|phone|mobile|wap|netfront|x11|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i</span>)!= <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(isMobile)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//移动客户端判断结束</span></span><br><span class="line"><span class="comment">//显UA开始</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskua</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> r = <span class="keyword">new</span> <span class="built_in">Array</span>;</span><br><span class="line">        <span class="keyword">var</span> outputer = <span class="string">''</span>;</span><br><span class="line">        <span class="keyword">if</span> (r = e.match(<span class="regexp">/FireFox\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_firefox"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Mozilla FireFox'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Maxthon([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_maxthon"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Maxthon'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/BIDUBrowser([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ucweb"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 百度浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/UBrowser([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ucweb"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; UCBrowser'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/UCBrowser([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ucweb"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; UCBrowser'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MetaSr/ig</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_sogou"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 搜狗浏览器'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/2345Explorer/ig</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_2345explorer"&gt;&lt;a href="http://ssk.91txh.com/2345download.php?id=2" target="_blank" style="color:#FFFFFF!important;"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 2345王牌浏览器&lt;/a&gt;'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/2345chrome/ig</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_2345chrome"&gt;&lt;a href="http://ssk.91txh.com/2345download.php?id=3" target="_blank" style="color:#FFFFFF!important;"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 2345加速浏览器&lt;/a&gt;'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/LBBROWSER/ig</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_lbbrowser"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 猎豹安全浏览器'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MicroMessenger\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-weixin"&gt;&lt;/i&gt; 微信'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('/')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/QQBrowser\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; QQ浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('/')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/QQ\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; QQ浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('/')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MiuiBrowser\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_mi"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Miui浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('/')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Edge([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Edge'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('.')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Chrome([\d]*)\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_chrome"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Chrome'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]<span class="comment">/*.split('.')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/safari\/([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_apple"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Apple Safari'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Opera[\s|\/]([^\s]+)/ig</span>)) &#123;</span><br><span class="line">            <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_opera"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Opera'</span> + <span class="string">'|'</span> + r[<span class="number">1</span>]</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Trident\/7.0/gi</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Internet Explorer 11'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MSIE\s([^\s|;]+)/gi</span>)) &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Internet Explorer'</span> + <span class="string">'|'</span> + r[<span class="number">0</span>]<span class="comment">/*.replace('MSIE', '').split('.')[0]*/</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            outputer = <span class="string">'&lt;span class="ua_other"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 其它浏览器'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sskcheckMobile())&#123;</span><br><span class="line">            Mobile=<span class="string">'&lt;br&gt;&lt;br&gt;'</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            Mobile=<span class="string">''</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> outputer+<span class="string">"&lt;/span&gt;"</span>+Mobile ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskos</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> os = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span> (e.match(<span class="regexp">/win/ig</span>)) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e.match(<span class="regexp">/nt 5.1/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_xp"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows XP'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.1/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_7"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 7'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.2/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_8"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 8'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.3/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_8_1"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 8.1'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 10.0/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_8_1"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 10'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.0/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_vista"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows Vista'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 5/ig</span>)) &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_2000"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 2000'</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            os = <span class="string">'&lt;span class="os_windows"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/android/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_android"&gt;&lt;i class="fa fa-android"&gt;&lt;/i&gt; Android'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/ubuntu/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_ubuntu"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Ubuntu'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/linux/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_linux"&gt;&lt;i class="fa fa-linux"&gt;&lt;/i&gt; Linux'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/mac/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_mac"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Mac OS X'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/unix/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_unix"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Unix'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/symbian/ig</span>)) &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_nokia"&gt;&lt;i class="fa fa-mobile"&gt;&lt;/i&gt; Nokia SymbianOS'</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        os = <span class="string">'&lt;span class="os_other"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; 其它操作系统'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> os+<span class="string">"&lt;/span&gt;"</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//显UA结束</span></span><br></pre></td></tr></table></figure></p>
-<p>然后，找到<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data-qqt-account=&quot;&apos; + (r.qqt_account || &quot;&quot;) + &apos;&quot;&gt;&apos; + u(r.name) + &quot;&lt;/span&gt;&quot;),</span><br></pre></td></tr></table></figure></p>
-<p>在后面添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t += &quot;&lt;span class=\&quot;ua\&quot;&gt;&quot; + sskua(s.agent) + &quot;&lt;/span&gt;&lt;span class=\&quot;ua\&quot;&gt;&quot; + sskos(s.agent) + &quot;&lt;/span&gt;&quot;,</span><br></pre></td></tr></table></figure></p>
-<p>找到Hexo模板中插入多说评论的Js代码，修改导入ember.js文件的地址为自定义的，这里可以将自定义的放到七牛云等静态资源托管平台，也可以放在当前项目静态文件目录中。<br>我的Hexo主题是使用的<code>maupassant</code>，插入多说评论的Js代码在主题的文件是<code>layout/_partial/after_footer.jade</code>，把<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ds.src = (document.location.protocol == &apos;https:&apos; ? &apos;https:&apos; : &apos;http:&apos;) + &apos;//static.duoshuo.com/embed.js&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ds.src = &apos;/js/embed.js&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>其中，我自定义的embed.js文件放在<code>maupassant</code>主题下的<code>source/js/</code>目录下。</p>
+<h2 id="自定义embed-js"><a href="#自定义embed-js" class="headerlink" title="自定义embed.js"></a>自定义embed.js</h2><p>多说默认用到的embed.js是从多说官方提供的，地址是<a href="http://static.duoshuo.com/embed.js" target="_blank" rel="external">http://static.duoshuo.com/embed.js</a><br>这里，我们需要修改embed.js文件，所以，先把官方提供的embed.js文件下载下来，在embed.js文件中增加检测浏览器和操作信息的代码，在embed.js文件顶部添加</p>
+<pre><code class="JavaScript">//移动客户端判断开始，作用：在移动客户端显示不同样式
+function sskcheckMobile(){
+    var isiPad = navigator.userAgent.match(/iPad/i) != null;
+    if(isiPad){
+        return false;
+    }
+    var isMobile=navigator.userAgent.match(/iphone|android|phone|mobile|wap|netfront|x11|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i)!= null;
+    if(isMobile){
+        return true;
+    }
+    return false;
+}
+//移动客户端判断结束
+//显UA开始
+function sskua(e) {
+        var r = new Array;
+        var outputer = &#39;&#39;;
+        if (r = e.match(/FireFox\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_firefox&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Mozilla FireFox&#39; + &#39;|&#39; + r1[1]
+        } else if (r = e.match(/Maxthon([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_maxthon&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Maxthon&#39;
+        } else if (r = e.match(/BIDUBrowser([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_ucweb&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 百度浏览器&#39; + &#39;|&#39; + r1[1]
+        } else if (r = e.match(/UBrowser([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_ucweb&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; UCBrowser&#39; + &#39;|&#39; + r1[1]
+        } else if (r = e.match(/UCBrowser([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_ucweb&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; UCBrowser&#39; + &#39;|&#39; + r1[1]
+        } else if (r = e.match(/MetaSr/ig)) {
+            outputer = &#39;&lt;span class=&quot;ua_sogou&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 搜狗浏览器&#39;
+        } else if (r = e.match(/2345Explorer/ig)) {
+            outputer = &#39;&lt;span class=&quot;ua_2345explorer&quot;&gt;&lt;a href=&quot;http://ssk.91txh.com/2345download.php?id=2&quot; target=&quot;_blank&quot; style=&quot;color:#FFFFFF!important;&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 2345王牌浏览器&lt;/a&gt;&#39;
+        } else if (r = e.match(/2345chrome/ig)) {
+            outputer = &#39;&lt;span class=&quot;ua_2345chrome&quot;&gt;&lt;a href=&quot;http://ssk.91txh.com/2345download.php?id=3&quot; target=&quot;_blank&quot; style=&quot;color:#FFFFFF!important;&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 2345加速浏览器&lt;/a&gt;&#39;
+        } else if (r = e.match(/LBBROWSER/ig)) {
+            outputer = &#39;&lt;span class=&quot;ua_lbbrowser&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 猎豹安全浏览器&#39;
+        } else if (r = e.match(/MicroMessenger\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_qq&quot;&gt;&lt;i class=&quot;fa fa-weixin&quot;&gt;&lt;/i&gt; 微信&#39; + &#39;|&#39; + r1[1]/*.split(&#39;/&#39;)[0]*/
+        } else if (r = e.match(/QQBrowser\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_qq&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; QQ浏览器&#39; + &#39;|&#39; + r1[1]/*.split(&#39;/&#39;)[0]*/
+        } else if (r = e.match(/QQ\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_qq&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; QQ浏览器&#39; + &#39;|&#39; + r1[1]/*.split(&#39;/&#39;)[0]*/
+        } else if (r = e.match(/MiuiBrowser\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_mi&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Miui浏览器&#39; + &#39;|&#39; + r1[1]/*.split(&#39;/&#39;)[0]*/
+        } else if (r = e.match(/Edge([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_ie&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Edge&#39; + &#39;|&#39; + r1[1]/*.split(&#39;.&#39;)[0]*/
+        } else if (r = e.match(/Chrome([\d]*)\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_chrome&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Chrome&#39; + &#39;|&#39; + r1[1]/*.split(&#39;.&#39;)[0]*/
+        } else if (r = e.match(/safari\/([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_apple&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Apple Safari&#39; + &#39;|&#39; + r1[1]
+        } else if (r = e.match(/Opera[\s|\/]([^\s]+)/ig)) {
+            var r1 = r[0].split(&quot;/&quot;);
+            outputer = &#39;&lt;span class=&quot;ua_opera&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Opera&#39; + &#39;|&#39; + r[1]
+        } else if (r = e.match(/Trident\/7.0/gi)) {
+            outputer = &#39;&lt;span class=&quot;ua_ie&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Internet Explorer 11&#39;
+        } else if (r = e.match(/MSIE\s([^\s|;]+)/gi)) {
+            outputer = &#39;&lt;span class=&quot;ua_ie&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; Internet Explorer&#39; + &#39;|&#39; + r[0]/*.replace(&#39;MSIE&#39;, &#39;&#39;).split(&#39;.&#39;)[0]*/
+        } else {
+            outputer = &#39;&lt;span class=&quot;ua_other&quot;&gt;&lt;i class=&quot;fa fa-globe&quot;&gt;&lt;/i&gt; 其它浏览器&#39;
+        }
+        if(sskcheckMobile()){
+            Mobile=&#39;&lt;br&gt;&lt;br&gt;&#39;;
+        }else{
+            Mobile=&#39;&#39;;
+        }
+        return outputer+&quot;&lt;/span&gt;&quot;+Mobile ;
+}
+function sskos(e) {
+    var os = &#39;&#39;;
+    if (e.match(/win/ig)) {
+        if (e.match(/nt 5.1/ig)) {
+            os = &#39;&lt;span class=&quot;os_xp&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows XP&#39;
+        } else if (e.match(/nt 6.1/ig)) {
+            os = &#39;&lt;span class=&quot;os_7&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows 7&#39;
+        } else if (e.match(/nt 6.2/ig)) {
+            os = &#39;&lt;span class=&quot;os_8&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows 8&#39;
+        } else if (e.match(/nt 6.3/ig)) {
+            os = &#39;&lt;span class=&quot;os_8_1&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows 8.1&#39;
+        } else if (e.match(/nt 10.0/ig)) {
+            os = &#39;&lt;span class=&quot;os_8_1&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows 10&#39;
+        } else if (e.match(/nt 6.0/ig)) {
+            os = &#39;&lt;span class=&quot;os_vista&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows Vista&#39;
+        } else if (e.match(/nt 5/ig)) {
+            os = &#39;&lt;span class=&quot;os_2000&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows 2000&#39;
+        } else {
+            os = &#39;&lt;span class=&quot;os_windows&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Windows&#39;
+        }
+    } else if (e.match(/android/ig)) {
+        os = &#39;&lt;span class=&quot;os_android&quot;&gt;&lt;i class=&quot;fa fa-android&quot;&gt;&lt;/i&gt; Android&#39;
+    } else if (e.match(/ubuntu/ig)) {
+        os = &#39;&lt;span class=&quot;os_ubuntu&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Ubuntu&#39;
+    } else if (e.match(/linux/ig)) {
+        os = &#39;&lt;span class=&quot;os_linux&quot;&gt;&lt;i class=&quot;fa fa-linux&quot;&gt;&lt;/i&gt; Linux&#39;
+    } else if (e.match(/mac/ig)) {
+        os = &#39;&lt;span class=&quot;os_mac&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Mac OS X&#39;
+    } else if (e.match(/unix/ig)) {
+        os = &#39;&lt;span class=&quot;os_unix&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; Unix&#39;
+    } else if (e.match(/symbian/ig)) {
+        os = &#39;&lt;span class=&quot;os_nokia&quot;&gt;&lt;i class=&quot;fa fa-mobile&quot;&gt;&lt;/i&gt; Nokia SymbianOS&#39;
+    } else {
+        os = &#39;&lt;span class=&quot;os_other&quot;&gt;&lt;i class=&quot;fa fa-desktop&quot;&gt;&lt;/i&gt; 其它操作系统&#39;
+    }
+    return os+&quot;&lt;/span&gt;&quot; ;
+}
+//显UA结束
+</code></pre>
+<p>然后，找到</p>
+<pre><code>data-qqt-account=&quot;&#39; + (r.qqt_account || &quot;&quot;) + &#39;&quot;&gt;&#39; + u(r.name) + &quot;&lt;/span&gt;&quot;),
+</code></pre><p>在后面添加</p>
+<pre><code>t += &quot;&lt;span class=\&quot;ua\&quot;&gt;&quot; + sskua(s.agent) + &quot;&lt;/span&gt;&lt;span class=\&quot;ua\&quot;&gt;&quot; + sskos(s.agent) + &quot;&lt;/span&gt;&quot;,
+</code></pre><p>找到Hexo模板中插入多说评论的Js代码，修改导入ember.js文件的地址为自定义的，这里可以将自定义的放到七牛云等静态资源托管平台，也可以放在当前项目静态文件目录中。<br>我的Hexo主题是使用的<code>maupassant</code>，插入多说评论的Js代码在主题的文件是<code>layout/_partial/after_footer.jade</code>，把</p>
+<pre><code>ds.src = (document.location.protocol == &#39;https:&#39; ? &#39;https:&#39; : &#39;http:&#39;) + &#39;//static.duoshuo.com/embed.js&#39;;
+</code></pre><p>改为</p>
+<pre><code>ds.src = &#39;/js/embed.js&#39;;
+</code></pre><p>其中，我自定义的embed.js文件放在<code>maupassant</code>主题下的<code>source/js/</code>目录下。</p>
 <h2 id="自定义显示CSS"><a href="#自定义显示CSS" class="headerlink" title="自定义显示CSS"></a>自定义显示CSS</h2><p>将下面的CSS样式添加到多说后台自定义CSS中</p>
-<p>登录多说，在<code>后台-&gt;设置-&gt;基本设置-&gt;自定义CSS</code>中添加下面的自定义的CSS即可<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line">/*UA Start*/</span><br><span class="line">span.ua &#123;</span><br><span class="line">    margin: 0 1px!important;</span><br><span class="line">    color: #FFFFFF!important;</span><br><span class="line">    /*text-transform: Capitalize!important;</span><br><span class="line">    float: right!important;</span><br><span class="line">    line-height: 18px!important;*/;</span><br><span class="line">&#125;</span><br><span class="line">.ua_other.os_other &#123;</span><br><span class="line">    background-color: #ccc!important;</span><br><span class="line">    color: #fff;</span><br><span class="line">    border: 1px solid #BBB!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ie &#123;</span><br><span class="line">    background-color: #428bca!important;</span><br><span class="line">    border-color: #357ebd!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_firefox &#123;</span><br><span class="line">    background-color: #f0ad4e!important;</span><br><span class="line">    border-color: #eea236!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_maxthon &#123;</span><br><span class="line">    background-color: #7373B9!important;</span><br><span class="line">    border-color: #7373B9!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ucweb &#123;</span><br><span class="line">    background-color: #FF740F!important;</span><br><span class="line">    border-color: #d43f3a!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_sogou &#123;</span><br><span class="line">    background-color: #78ACE9!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345explorer &#123;</span><br><span class="line">    background-color: #2478B8!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345chrome &#123;</span><br><span class="line">    background-color: #F9D024!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_mi &#123;</span><br><span class="line">    background-color: #FF4A00!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_lbbrowser &#123;</span><br><span class="line">    background-color: #FC9D2E!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_chrome &#123;</span><br><span class="line">    background-color: #EE6252!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_qq &#123;</span><br><span class="line">    background-color: #3D88A8!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_apple &#123;</span><br><span class="line">    background-color: #E95620!important;</span><br><span class="line">    border-color: #4cae4c!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_opera &#123;</span><br><span class="line">    background-color: #d9534f!important;</span><br><span class="line">    border-color: #d43f3a!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_vista,.os_2000,.os_windows,.os_xp,.os_7,.os_8,.os_8_1 &#123;</span><br><span class="line">    background-color: #39b3d7!important;</span><br><span class="line">    border-color: #46b8da!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_android &#123;</span><br><span class="line">    background-color: #98C13D!important;</span><br><span class="line">    border-color: #01B171!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_ubuntu &#123;</span><br><span class="line">    background-color: #DD4814!important;</span><br><span class="line">    border-color: #01B171!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_linux &#123;</span><br><span class="line">    background-color: #3A3A3A!important;</span><br><span class="line">    border-color: #1F1F1F!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_mac &#123;</span><br><span class="line">    background-color: #666666!important;</span><br><span class="line">    border-color: #1F1F1F!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_unix &#123;</span><br><span class="line">    background-color: #006600!important;</span><br><span class="line">    border-color: #1F1F1F!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_nokia &#123;</span><br><span class="line">    background-color: #014485!important;</span><br><span class="line">    border-color: #1F1F1F!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">.sskadmin &#123;</span><br><span class="line">    background-color: #00a67c!important;</span><br><span class="line">    border-color: #01B171!important;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 0 5px!important;</span><br><span class="line">&#125;</span><br><span class="line">/*UA End*/</span><br></pre></td></tr></table></figure></p>
-<h2 id="多说评论用户头像水平翻转效果"><a href="#多说评论用户头像水平翻转效果" class="headerlink" title="多说评论用户头像水平翻转效果"></a>多说评论用户头像水平翻转效果</h2><p>在多说系统的自定义CSS中添加如下代码即可实现：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line">/*Head Start*/</span><br><span class="line">#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current &#123;</span><br><span class="line">    border: 0px;</span><br><span class="line">    color: #6D6D6B;</span><br><span class="line">    text-shadow: none;</span><br><span class="line">    background: #F3F3F3;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-highlight &#123;</span><br><span class="line">    font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, Sans-serif;</span><br><span class="line">    ;font-size: 100%;</span><br><span class="line">    color: #6D6D6B !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current:hover &#123;</span><br><span class="line">    color: #696a52;</span><br><span class="line">    background: #F2F2F2;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset a.ds-highlight:hover &#123;</span><br><span class="line">    color: #696a52 !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread &#123;</span><br><span class="line">    padding-left: 30px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset #ds-hot-posts &#123;</span><br><span class="line">    overflow: visible;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-post-self &#123;</span><br><span class="line">    padding: 10px 0 10px 10px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset .ds-post-self &#123;</span><br><span class="line">    border: 0 !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-reset .ds-avatar, #ds-thread #ds-reset ul.ds-children .ds-avatar &#123;</span><br><span class="line">    top: 15px;</span><br><span class="line">    left: -20px;</span><br><span class="line">    padding: 5px;</span><br><span class="line">    width: 36px;</span><br><span class="line">    height: 36px;</span><br><span class="line">    box-shadow: -1px 0 1px rgba(0,0,0,.15) inset;</span><br><span class="line">    border-radius: 46px;</span><br><span class="line">    background: #FAFAFA;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread .ds-avatar a &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    padding: 1px;</span><br><span class="line">    width: 32px;</span><br><span class="line">    height: 32px;</span><br><span class="line">    border: 1px solid #b9baa6;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">    background-color: #fff !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread .ds-avatar a:hover &#123;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread .ds-avatar &gt; img &#123;</span><br><span class="line">    margin: 2px 0 0 2px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-replybox &#123;</span><br><span class="line">    box-shadow: none;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset ul.ds-children .ds-replybox.ds-inline-replybox a.ds-avatar,</span><br><span class="line">#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar &#123;</span><br><span class="line">    left: 0;</span><br><span class="line">    top: 0;</span><br><span class="line">    padding: 0;</span><br><span class="line">    width: 32px !important;</span><br><span class="line">    height: 32px !important;</span><br><span class="line">    background: none;</span><br><span class="line">    box-shadow: none;</span><br><span class="line">&#125;</span><br><span class="line">#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar img &#123;</span><br><span class="line">    width: 32px !important;</span><br><span class="line">    height: 32px !important;</span><br><span class="line">    border-radius: 50%;</span><br><span class="line">&#125;</span><br><span class="line">#ds-reset .ds-replybox a.ds-avatar,</span><br><span class="line">#ds-reset .ds-replybox .ds-avatar img &#123;</span><br><span class="line">    padding: 0;</span><br><span class="line">    width: 50px !important;</span><br><span class="line">    height: 50px !important;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-reset .ds-avatar img &#123;</span><br><span class="line">    width: 32px !important;</span><br><span class="line">    height: 32px !important;</span><br><span class="line">    border-radius: 32px;</span><br><span class="line">    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);</span><br><span class="line">    -webkit-transition: .8s all ease-in-out;</span><br><span class="line">    -moz-transition: .4s all ease-in-out;</span><br><span class="line">    -o-transition: .4s all ease-in-out;</span><br><span class="line">    -ms-transition: .4s all ease-in-out;</span><br><span class="line">    transition: .4s all ease-in-out;</span><br><span class="line">&#125;</span><br><span class="line">.ds-post-self:hover .ds-avatar img &#123;</span><br><span class="line">    -webkit-transform: rotateX(360deg);</span><br><span class="line">    -moz-transform: rotate(360deg);</span><br><span class="line">    -o-transform: rotate(360deg);</span><br><span class="line">    -ms-transform: rotate(360deg);</span><br><span class="line">    transform: rotate(360deg);</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comment-body &#123;</span><br><span class="line">    -webkit-transition-delay: initial;</span><br><span class="line">    -webkit-transition-duration: 0.4s;</span><br><span class="line">    -webkit-transition-property: all;</span><br><span class="line">    -webkit-transition-timing-function: initial;</span><br><span class="line">    background: #F7F7F7;</span><br><span class="line">    padding: 15px 15px 15px 47px;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">    box-shadow: #B8B9B9 0 1px 3px;</span><br><span class="line">    border: white 1px solid;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset ul.ds-children .ds-comment-body &#123;</span><br><span class="line">    padding-left: 15px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comment-body p &#123;</span><br><span class="line">    color: #787968;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comments &#123;</span><br><span class="line">    border-bottom: 0px;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-powered-by &#123;</span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comments a.ds-user-name &#123;</span><br><span class="line">    font-weight: normal;</span><br><span class="line">    color: #3D3D3D !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comments a.ds-user-name:hover &#123;</span><br><span class="line">    color: #D32 !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset #ds-bubble &#123;</span><br><span class="line">    display: none !important;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset #ds-hot-posts &#123;</span><br><span class="line">    border: 0;</span><br><span class="line">&#125;</span><br><span class="line">#ds-reset #ds-hot-posts .ds-gradient-bg &#123;</span><br><span class="line">    background: none;</span><br><span class="line">&#125;</span><br><span class="line">#ds-thread #ds-reset .ds-comment-body:hover &#123;</span><br><span class="line">    background-color: #F1F1F1;</span><br><span class="line">    -webkit-transition-delay: initial;</span><br><span class="line">    -webkit-transition-duration: 0.4s;</span><br><span class="line">    -webkit-transition-property: all;</span><br><span class="line">    -webkit-transition-timing-function: initial;</span><br><span class="line">&#125;</span><br><span class="line">/*Head End*/</span><br></pre></td></tr></table></figure></p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" data-id="ciudj2kvl000h2hcdz38a3qnu" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Hexo/">Hexo</a><a href="/tags/博客/">博客</a><a href="/tags/教程/">教程</a></div><div class="post-nav"><a href="/2016/06/Bottle-源码学习/" class="pre">Bottle 源码学习</a><a href="/2016/05/Hexo-搭建博客/" class="next">Hexo 搭建博客</a></div><div data-thread-key="2016/06/多说评论添加显示浏览器以及操作系统信息/" data-title="多说评论添加显示浏览器以及操作系统信息" data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/06/多说评论添加显示浏览器以及操作系统信息/" data-title="多说评论添加显示浏览器以及操作系统信息" data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.pfchai.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/源码/" style="font-size: 15px;">源码</a> <a href="/tags/Bottle/" style="font-size: 15px;">Bottle</a> <a href="/tags/Clojure/" style="font-size: 15px;">Clojure</a> <a href="/tags/Lisp/" style="font-size: 15px;">Lisp</a> <a href="/tags/FP/" style="font-size: 15px;">FP</a> <a href="/tags/开发环境/" style="font-size: 15px;">开发环境</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/Sublime-Text/" style="font-size: 15px;">Sublime Text</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/MATLAB/" style="font-size: 15px;">MATLAB</a> <a href="/tags/编码/" style="font-size: 15px;">编码</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/Python-解析-开头的字符串/">Python 解析&#开头的字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/Clojure-爬虫：抓取花瓣网图片/">Clojure 爬虫：抓取花瓣网图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/高逼格使用MATLAB之-少写for循环/">高逼格使用MATLAB之: 少写for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Clojure-开发环境搭建/">Clojure 开发环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Bottle-源码学习/">Bottle 源码学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/多说评论添加显示浏览器以及操作系统信息/">多说评论添加显示浏览器以及操作系统信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Hexo-搭建博客/">Hexo 搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Django中加入富文本编辑器/">Django中加入富文本编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/leetcode-刷题（shell部分）/">leetcode 刷题（shell部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/Sublime-Text-3-教程/">Sublime Text 3 教程</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.coolshell.cn/" title="酷壳" target="_blank">酷壳</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a><ul></ul><a href="http://tools.pfchai.com/" title="我的一个在线图像去雾应用" target="_blank">我的一个在线图像去雾应用</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">chai's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'blogpfchai'};
+<p>登录多说，在<code>后台-&gt;设置-&gt;基本设置-&gt;自定义CSS</code>中添加下面的自定义的CSS即可</p>
+<pre><code class="css">/*UA Start*/
+span.ua {
+    margin: 0 1px!important;
+    color: #FFFFFF!important;
+    /*text-transform: Capitalize!important;
+    float: right!important;
+    line-height: 18px!important;*/;
+}
+.ua_other.os_other {
+    background-color: #ccc!important;
+    color: #fff;
+    border: 1px solid #BBB!important;
+    border-radius: 4px;
+}
+.ua_ie {
+    background-color: #428bca!important;
+    border-color: #357ebd!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_firefox {
+    background-color: #f0ad4e!important;
+    border-color: #eea236!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_maxthon {
+    background-color: #7373B9!important;
+    border-color: #7373B9!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_ucweb {
+    background-color: #FF740F!important;
+    border-color: #d43f3a!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_sogou {
+    background-color: #78ACE9!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_2345explorer {
+    background-color: #2478B8!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_2345chrome {
+    background-color: #F9D024!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_mi {
+    background-color: #FF4A00!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_lbbrowser {
+    background-color: #FC9D2E!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_chrome {
+    background-color: #EE6252!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_qq {
+    background-color: #3D88A8!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_apple {
+    background-color: #E95620!important;
+    border-color: #4cae4c!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.ua_opera {
+    background-color: #d9534f!important;
+    border-color: #d43f3a!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_vista,.os_2000,.os_windows,.os_xp,.os_7,.os_8,.os_8_1 {
+    background-color: #39b3d7!important;
+    border-color: #46b8da!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_android {
+    background-color: #98C13D!important;
+    border-color: #01B171!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_ubuntu {
+    background-color: #DD4814!important;
+    border-color: #01B171!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_linux {
+    background-color: #3A3A3A!important;
+    border-color: #1F1F1F!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_mac {
+    background-color: #666666!important;
+    border-color: #1F1F1F!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_unix {
+    background-color: #006600!important;
+    border-color: #1F1F1F!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.os_nokia {
+    background-color: #014485!important;
+    border-color: #1F1F1F!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+.sskadmin {
+    background-color: #00a67c!important;
+    border-color: #01B171!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+}
+/*UA End*/
+</code></pre>
+<h2 id="多说评论用户头像水平翻转效果"><a href="#多说评论用户头像水平翻转效果" class="headerlink" title="多说评论用户头像水平翻转效果"></a>多说评论用户头像水平翻转效果</h2><p>在多说系统的自定义CSS中添加如下代码即可实现：</p>
+<pre><code class="css">/*Head Start*/
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current {
+    border: 0px;
+    color: #6D6D6B;
+    text-shadow: none;
+    background: #F3F3F3;
+}
+#ds-thread #ds-reset .ds-highlight {
+    font-family: Microsoft YaHei, &quot;Helvetica Neue&quot;, Helvetica, Arial, Sans-serif;
+    ;font-size: 100%;
+    color: #6D6D6B !important;
+}
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current:hover {
+    color: #696a52;
+    background: #F2F2F2;
+}
+#ds-thread #ds-reset a.ds-highlight:hover {
+    color: #696a52 !important;
+}
+#ds-thread {
+    padding-left: 30px;
+}
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset #ds-hot-posts {
+    overflow: visible;
+}
+#ds-thread #ds-reset .ds-post-self {
+    padding: 10px 0 10px 10px;
+}
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset .ds-post-self {
+    border: 0 !important;
+}
+#ds-reset .ds-avatar, #ds-thread #ds-reset ul.ds-children .ds-avatar {
+    top: 15px;
+    left: -20px;
+    padding: 5px;
+    width: 36px;
+    height: 36px;
+    box-shadow: -1px 0 1px rgba(0,0,0,.15) inset;
+    border-radius: 46px;
+    background: #FAFAFA;
+}
+#ds-thread .ds-avatar a {
+    display: inline-block;
+    padding: 1px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #b9baa6;
+    border-radius: 50%;
+    background-color: #fff !important;
+}
+#ds-thread .ds-avatar a:hover {
+}
+#ds-thread .ds-avatar &gt; img {
+    margin: 2px 0 0 2px;
+}
+#ds-thread #ds-reset .ds-replybox {
+    box-shadow: none;
+}
+#ds-thread #ds-reset ul.ds-children .ds-replybox.ds-inline-replybox a.ds-avatar,
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar {
+    left: 0;
+    top: 0;
+    padding: 0;
+    width: 32px !important;
+    height: 32px !important;
+    background: none;
+    box-shadow: none;
+}
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50%;
+}
+#ds-reset .ds-replybox a.ds-avatar,
+#ds-reset .ds-replybox .ds-avatar img {
+    padding: 0;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 5px;
+}
+#ds-reset .ds-avatar img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+    -webkit-transition: .8s all ease-in-out;
+    -moz-transition: .4s all ease-in-out;
+    -o-transition: .4s all ease-in-out;
+    -ms-transition: .4s all ease-in-out;
+    transition: .4s all ease-in-out;
+}
+.ds-post-self:hover .ds-avatar img {
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+#ds-thread #ds-reset .ds-comment-body {
+    -webkit-transition-delay: initial;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: initial;
+    background: #F7F7F7;
+    padding: 15px 15px 15px 47px;
+    border-radius: 5px;
+    box-shadow: #B8B9B9 0 1px 3px;
+    border: white 1px solid;
+}
+#ds-thread #ds-reset ul.ds-children .ds-comment-body {
+    padding-left: 15px;
+}
+#ds-thread #ds-reset .ds-comment-body p {
+    color: #787968;
+}
+#ds-thread #ds-reset .ds-comments {
+    border-bottom: 0px;
+}
+#ds-thread #ds-reset .ds-powered-by {
+    display: none;
+}
+#ds-thread #ds-reset .ds-comments a.ds-user-name {
+    font-weight: normal;
+    color: #3D3D3D !important;
+}
+#ds-thread #ds-reset .ds-comments a.ds-user-name:hover {
+    color: #D32 !important;
+}
+#ds-thread #ds-reset #ds-bubble {
+    display: none !important;
+}
+#ds-thread #ds-reset #ds-hot-posts {
+    border: 0;
+}
+#ds-reset #ds-hot-posts .ds-gradient-bg {
+    background: none;
+}
+#ds-thread #ds-reset .ds-comment-body:hover {
+    background-color: #F1F1F1;
+    -webkit-transition-delay: initial;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: initial;
+}
+/*Head End*/
+</code></pre>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" data-id="ciudqt78b000hsccdk9dz9mtz" class="article-share-link">分享到</a><div class="tags"><a href="/tags/Hexo/">Hexo</a><a href="/tags/博客/">博客</a><a href="/tags/教程/">教程</a></div><div class="post-nav"><a href="/2016/06/Bottle-源码学习/" class="pre">Bottle 源码学习</a><a href="/2016/05/Hexo-搭建博客/" class="next">Hexo 搭建博客</a></div><div data-thread-key="2016/06/多说评论添加显示浏览器以及操作系统信息/" data-title="多说评论添加显示浏览器以及操作系统信息" data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/06/多说评论添加显示浏览器以及操作系统信息/" data-title="多说评论添加显示浏览器以及操作系统信息" data-url="http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.pfchai.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/源码/" style="font-size: 15px;">源码</a> <a href="/tags/Bottle/" style="font-size: 15px;">Bottle</a> <a href="/tags/Clojure/" style="font-size: 15px;">Clojure</a> <a href="/tags/Lisp/" style="font-size: 15px;">Lisp</a> <a href="/tags/FP/" style="font-size: 15px;">FP</a> <a href="/tags/开发环境/" style="font-size: 15px;">开发环境</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/Sublime-Text/" style="font-size: 15px;">Sublime Text</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/MATLAB/" style="font-size: 15px;">MATLAB</a> <a href="/tags/编码/" style="font-size: 15px;">编码</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/Python-解析-开头的字符串/">Python 解析&#开头的字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/Clojure-爬虫：抓取花瓣网图片/">Clojure 爬虫：抓取花瓣网图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/高逼格使用MATLAB之-少写for循环/">高逼格使用MATLAB之: 少写for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Clojure-开发环境搭建/">Clojure 开发环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Bottle-源码学习/">Bottle 源码学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/多说评论添加显示浏览器以及操作系统信息/">多说评论添加显示浏览器以及操作系统信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Hexo-搭建博客/">Hexo 搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Django中加入富文本编辑器/">Django中加入富文本编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/leetcode-刷题（shell部分）/">leetcode 刷题（shell部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/Sublime-Text-3-教程/">Sublime Text 3 教程</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.coolshell.cn/" title="酷壳" target="_blank">酷壳</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a><ul></ul><a href="http://tools.pfchai.com/" title="我的一个在线图像去雾应用" target="_blank">我的一个在线图像去雾应用</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">chai's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'blogpfchai'};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;

@@ -1,34 +1,231 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="半野生程序员"><meta name="google-site-verification" content="vq10mBPkVD41CiN6dV1SlLnAN5LzGd1FsDtgz5akatk"><title>Bottle 源码学习 | chai's blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.1"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/3.0.3/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Bottle 源码学习</h1><a id="logo" href="/.">chai's blog</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/guestbook/"><i class="fa fa-comments"> 留言</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">Bottle 源码学习</h1><div class="post-meta">Jun 16, 2016<script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-thread-key="2016/06/Bottle-源码学习/" href="/2016/06/Bottle-源码学习/#comments" class="ds-thread-count"></a><div class="post-content"><p><a href="https://github.com/bottlepy/bottle" target="_blank" rel="external">Bottle</a>是一个快速、简单、轻量级的WSGI微框架，整个项目只有一个文件，并且，除了Python标准库以外，Bottle不依赖其他第三方库。</p>
 <p>为了对Bottle项目有个大致的了解，我们选择<code>0.4.10</code>版本研究，这个版本中，Bottle代码量不超过1000行，基本功能都已经实现并且研究起来也会容易些。下面的内容，如果没有特殊说明，都是指<code>0.4.10</code>版本的源码。</p>
 <a id="more"></a>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>先从Github上下载<a href="https://github.com/bottlepy/bottle" target="_blank" rel="external">Bottle</a>的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/bottlepy/bottle.git</span><br></pre></td></tr></table></figure></p>
-<p>下载完以后，进入bottle项目目录，同时切换到<code>0.4.10</code>版本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd bottle</span><br><span class="line">git checkout -b 0.4.10</span><br></pre></td></tr></table></figure></p>
-<p>此时，<code>bottle.py</code>就是我们要研究的代码了。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>先从Github上下载<a href="https://github.com/bottlepy/bottle" target="_blank" rel="external">Bottle</a>的源码</p>
+<pre><code>git clone https://github.com/bottlepy/bottle.git
+</code></pre><p>下载完以后，进入bottle项目目录，同时切换到<code>0.4.10</code>版本</p>
+<pre><code>cd bottle
+git checkout -b 0.4.10
+</code></pre><p>此时，<code>bottle.py</code>就是我们要研究的代码了。</p>
 <h2 id="Bottle-示例程序"><a href="#Bottle-示例程序" class="headerlink" title="Bottle 示例程序"></a>Bottle 示例程序</h2><p>想要研究源码，必然要先让程序跑起来，看看程序的大概过程是怎么样的。</p>
-<p>在Bottle项目中新建<code>demo.py</code>，写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">from bottle import route, run, request, send_file, template</span><br><span class="line"></span><br><span class="line">@route(&apos;/&apos;)</span><br><span class="line">def hello_world():</span><br><span class="line">    return &apos;Hello World!&apos;</span><br><span class="line"></span><br><span class="line">@route(&apos;/hello/:name&apos;)</span><br><span class="line">def hello_name(name):</span><br><span class="line">    return &apos;Hello %s!&apos; % name</span><br><span class="line"></span><br><span class="line">@route(&apos;/hello&apos;, method=&apos;POST&apos;)</span><br><span class="line">def hello_post():</span><br><span class="line">    name = request.POST[&apos;name&apos;]</span><br><span class="line">    return &apos;Hello %s!&apos; % name</span><br><span class="line"></span><br><span class="line">@route(&apos;/static/:filename#.*#&apos;)</span><br><span class="line">def static_file(filename):</span><br><span class="line">    send_file(filename, root=&apos;/path/to/static/files/&apos;)</span><br><span class="line"></span><br><span class="line">@route(&apos;/template/test&apos;)</span><br><span class="line">def template_test():</span><br><span class="line">    return template(&apos;index&apos;, title=&apos;Template Test&apos;, items=[1,2,3,&apos;fly&apos;])</span><br><span class="line">    </span><br><span class="line">run(host=&apos;localhost&apos;, port=8080)</span><br></pre></td></tr></table></figure></p>
-<p>新建模板文件<code>index.tpl</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">%message = &apos;Hello world!&apos;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;title&gt;&#123;&#123;title.title()&#125;&#125;&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;title.title()&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;message&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;Items in list: &#123;&#123;len(items)&#125;&#125;&lt;/p&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">    %for item in items:</span><br><span class="line">      &lt;li&gt;</span><br><span class="line">      %if isinstance(item, int):</span><br><span class="line">        Zahl: &#123;&#123;item&#125;&#125;</span><br><span class="line">      %else:</span><br><span class="line">        %try:</span><br><span class="line">          Other type: (&#123;&#123;type(item).__name__&#125;&#125;) &#123;&#123;repr(item)&#125;&#125;</span><br><span class="line">        %except:</span><br><span class="line">          Error: Item has no string representation.</span><br><span class="line">        %end try-block (yes, you may add comments here)</span><br><span class="line">      %end</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    %end</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p>
-<p>运行只需要执行即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python demo.py</span><br></pre></td></tr></table></figure></p>
+<p>在Bottle项目中新建<code>demo.py</code>，写入</p>
+<pre><code>from bottle import route, run, request, send_file, template
+
+@route(&#39;/&#39;)
+def hello_world():
+    return &#39;Hello World!&#39;
+
+@route(&#39;/hello/:name&#39;)
+def hello_name(name):
+    return &#39;Hello %s!&#39; % name
+
+@route(&#39;/hello&#39;, method=&#39;POST&#39;)
+def hello_post():
+    name = request.POST[&#39;name&#39;]
+    return &#39;Hello %s!&#39; % name
+
+@route(&#39;/static/:filename#.*#&#39;)
+def static_file(filename):
+    send_file(filename, root=&#39;/path/to/static/files/&#39;)
+
+@route(&#39;/template/test&#39;)
+def template_test():
+    return template(&#39;index&#39;, title=&#39;Template Test&#39;, items=[1,2,3,&#39;fly&#39;])
+
+run(host=&#39;localhost&#39;, port=8080)
+</code></pre><p>新建模板文件<code>index.tpl</code></p>
+<pre><code>%message = &#39;Hello world!&#39;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{{title.title()}}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;{{title.title()}}&lt;/h1&gt;
+    &lt;p&gt;{{message}}&lt;/p&gt;
+    &lt;p&gt;Items in list: {{len(items)}}&lt;/p&gt;
+    &lt;ul&gt;
+    %for item in items:
+      &lt;li&gt;
+      %if isinstance(item, int):
+        Zahl: {{item}}
+      %else:
+        %try:
+          Other type: ({{type(item).__name__}}) {{repr(item)}}
+        %except:
+          Error: Item has no string representation.
+        %end try-block (yes, you may add comments here)
+      %end
+      &lt;/li&gt;
+    %end
+    &lt;/ul&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>运行只需要执行即可</p>
+<pre><code class="`">python demo.py
+</code></pre>
 <h2 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h2><p>Bottle是在Python自带的wsgiref的基础上做了一层包装，主要重心放在处理路由、模板、数据库等部分，具体涉及到网络的部分则交给wsgiref处理。</p>
 <p>主程序部分逻辑很简单，判断server是否是ServerAdapter的子类，如果是，则交给server类处理。在server类的run方法中，传入具体处理函数WSGIHandler。WSGIHandler会根据请求的路径再交给相应的函数来处理各个请求。</p>
-<p>下面是Bottle这部分源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def run(server=WSGIRefServer, host=&apos;127.0.0.1&apos;, port=8080, optinmize = False, **kargs):</span><br><span class="line">    &quot;&quot;&quot; Runs bottle as a web server, using Python&apos;s built-in wsgiref implementation by default.</span><br><span class="line">    </span><br><span class="line">    You may choose between WSGIRefServer, CherryPyServer, FlupServer and</span><br><span class="line">    PasteServer or write your own server adapter.</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    global OPTIMIZER</span><br><span class="line">    </span><br><span class="line">    OPTIMIZER = bool(optinmize)</span><br><span class="line">    quiet = bool(&apos;quiet&apos; in kargs and kargs[&apos;quiet&apos;])</span><br><span class="line"></span><br><span class="line">    # Instanciate server, if it is a class instead of an instance</span><br><span class="line">    if isinstance(server, type) and issubclass(server, ServerAdapter):</span><br><span class="line">        server = server(host=host, port=port, **kargs)</span><br><span class="line"></span><br><span class="line">    if not isinstance(server, ServerAdapter):</span><br><span class="line">        raise RuntimeError(&quot;Server must be a subclass of ServerAdapter&quot;)</span><br><span class="line"></span><br><span class="line">    if not quiet:</span><br><span class="line">        print &apos;Bottle server starting up (using %s)...&apos; % repr(server)</span><br><span class="line">        print &apos;Listening on http://%s:%d/&apos; % (server.host, server.port)</span><br><span class="line">        print &apos;Use Ctrl-C to quit.&apos;</span><br><span class="line">        print</span><br><span class="line"></span><br><span class="line">    try:</span><br><span class="line">        server.run(WSGIHandler)</span><br><span class="line">    except KeyboardInterrupt:</span><br><span class="line">        print &quot;Shuting down...&quot;</span><br></pre></td></tr></table></figure></p>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>Bottle中，添加一条路由规则很简单，只需要在对应该路由规则的处理函数上面加上一个<code>@route</code>装饰器即可，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@route(&apos;/sayhi&apos;)</span><br><span class="line">def hello_world():</span><br><span class="line">    return &apos;Hello World!&apos;</span><br></pre></td></tr></table></figure></p>
-<p>表示，所有请求<code>/sayhi</code>的都是函数hello_world来处理。并且，Bottle支持动态路由，下面的示例展示了在Bottle中使用动态路由：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@route(&apos;/hello/:name&apos;)</span><br><span class="line">def hello(name = &apos;World&apos;)</span><br><span class="line">    return &apos;Hello &#123;&#125;!&apos;.format(name)</span><br></pre></td></tr></table></figure></p>
-<p>当请求为<code>/hello/pfchai</code>时，会返回一个包含’Hello pfchai’页面。</p>
-<p>Bottle中，装饰器<code>route</code>源码如下，作用就是把路由与该路由对应的处理函数添加到路由处理列表中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def route(url, **kargs):</span><br><span class="line">    &quot;&quot;&quot; Decorator for request handler. Same as add_route(url, handler).&quot;&quot;&quot;</span><br><span class="line">    def wrapper(handler):</span><br><span class="line">        add_route(url, handler, **kargs)</span><br><span class="line">        return handler</span><br><span class="line">    return wrapper</span><br></pre></td></tr></table></figure></p>
-<p>其中，add_route函数源码为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def add_route(route, handler, method=&apos;GET&apos;, simple=False):</span><br><span class="line">    &quot;&quot;&quot; Adds a new route to the route mappings.</span><br><span class="line"></span><br><span class="line">        Example:</span><br><span class="line">        def hello():</span><br><span class="line">          return &quot;Hello world!&quot;</span><br><span class="line">        add_route(r&apos;/hello&apos;, hello)&quot;&quot;&quot;</span><br><span class="line">    method = method.strip().upper()</span><br><span class="line">    if re.match(r&apos;^/(\w+/)*\w*$&apos;, route) or simple:</span><br><span class="line">        ROUTES_SIMPLE.setdefault(method, &#123;&#125;)[route] = handler</span><br><span class="line">    else:</span><br><span class="line">        route = compile_route(route)</span><br><span class="line">        ROUTES_REGEXP.setdefault(method, []).append([route, handler])</span><br></pre></td></tr></table></figure></p>
-<p>如果是简单路由规则，将该规则添加到ROUTES_SIMPLE中，动态路由则添加到ROUTES_REGEXP中</p>
-<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="BaseTemplate类"><a href="#BaseTemplate类" class="headerlink" title="BaseTemplate类"></a>BaseTemplate类</h3><p>BaseTemplate类的源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">class BaseTemplate(object):</span><br><span class="line">    def __init__(self, template=&apos;&apos;, filename=&apos;&lt;template&gt;&apos;):</span><br><span class="line">        self.source = filename</span><br><span class="line">        if self.source != &apos;&lt;template&gt;&apos;:</span><br><span class="line">            fp = open(filename)</span><br><span class="line">            template = fp.read()</span><br><span class="line">            fp.close()</span><br><span class="line">        self.parse(template)</span><br><span class="line">    def parse(self, template): raise NotImplementedError</span><br><span class="line">    def render(self, **args): raise NotImplementedError</span><br><span class="line">    @classmethod</span><br><span class="line">    def find(cls, name):</span><br><span class="line">        files = [path % name for path in TEMPLATE_PATH if os.path.isfile(path % name)]</span><br><span class="line">        if files:</span><br><span class="line">            return cls(filename = files[0])</span><br><span class="line">        else:</span><br><span class="line">            raise TemplateError(&apos;Template not found: %s&apos; % repr(name))</span><br></pre></td></tr></table></figure></p>
-<p>Bottle中模板类都是继承BaseTemplate类，BaseTemplate类是一个抽象类，子类必须实现parse和render方法。BaseTemplate类中各个方法的意义：</p>
+<p>下面是Bottle这部分源码</p>
+<pre><code>def run(server=WSGIRefServer, host=&#39;127.0.0.1&#39;, port=8080, optinmize = False, **kargs):
+    &quot;&quot;&quot; Runs bottle as a web server, using Python&#39;s built-in wsgiref implementation by default.
+
+    You may choose between WSGIRefServer, CherryPyServer, FlupServer and
+    PasteServer or write your own server adapter.
+    &quot;&quot;&quot;
+    global OPTIMIZER
+
+    OPTIMIZER = bool(optinmize)
+    quiet = bool(&#39;quiet&#39; in kargs and kargs[&#39;quiet&#39;])
+
+    # Instanciate server, if it is a class instead of an instance
+    if isinstance(server, type) and issubclass(server, ServerAdapter):
+        server = server(host=host, port=port, **kargs)
+
+    if not isinstance(server, ServerAdapter):
+        raise RuntimeError(&quot;Server must be a subclass of ServerAdapter&quot;)
+
+    if not quiet:
+        print &#39;Bottle server starting up (using %s)...&#39; % repr(server)
+        print &#39;Listening on http://%s:%d/&#39; % (server.host, server.port)
+        print &#39;Use Ctrl-C to quit.&#39;
+        print
+
+    try:
+        server.run(WSGIHandler)
+    except KeyboardInterrupt:
+        print &quot;Shuting down...&quot;
+</code></pre><h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p>Bottle中，添加一条路由规则很简单，只需要在对应该路由规则的处理函数上面加上一个<code>@route</code>装饰器即可，如：</p>
+<pre><code>@route(&#39;/sayhi&#39;)
+def hello_world():
+    return &#39;Hello World!&#39;
+</code></pre><p>表示，所有请求<code>/sayhi</code>的都是函数hello_world来处理。并且，Bottle支持动态路由，下面的示例展示了在Bottle中使用动态路由：</p>
+<pre><code>@route(&#39;/hello/:name&#39;)
+def hello(name = &#39;World&#39;)
+    return &#39;Hello {}!&#39;.format(name)
+</code></pre><p>当请求为<code>/hello/pfchai</code>时，会返回一个包含’Hello pfchai’页面。</p>
+<p>Bottle中，装饰器<code>route</code>源码如下，作用就是把路由与该路由对应的处理函数添加到路由处理列表中。</p>
+<pre><code>def route(url, **kargs):
+    &quot;&quot;&quot; Decorator for request handler. Same as add_route(url, handler).&quot;&quot;&quot;
+    def wrapper(handler):
+        add_route(url, handler, **kargs)
+        return handler
+    return wrapper
+</code></pre><p>其中，add_route函数源码为：</p>
+<pre><code>def add_route(route, handler, method=&#39;GET&#39;, simple=False):
+    &quot;&quot;&quot; Adds a new route to the route mappings.
+
+        Example:
+        def hello():
+          return &quot;Hello world!&quot;
+        add_route(r&#39;/hello&#39;, hello)&quot;&quot;&quot;
+    method = method.strip().upper()
+    if re.match(r&#39;^/(\w+/)*\w*$&#39;, route) or simple:
+        ROUTES_SIMPLE.setdefault(method, {})[route] = handler
+    else:
+        route = compile_route(route)
+        ROUTES_REGEXP.setdefault(method, []).append([route, handler])
+</code></pre><p>如果是简单路由规则，将该规则添加到ROUTES_SIMPLE中，动态路由则添加到ROUTES_REGEXP中</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><h3 id="BaseTemplate类"><a href="#BaseTemplate类" class="headerlink" title="BaseTemplate类"></a>BaseTemplate类</h3><p>BaseTemplate类的源码</p>
+<pre><code>class BaseTemplate(object):
+    def __init__(self, template=&#39;&#39;, filename=&#39;&lt;template&gt;&#39;):
+        self.source = filename
+        if self.source != &#39;&lt;template&gt;&#39;:
+            fp = open(filename)
+            template = fp.read()
+            fp.close()
+        self.parse(template)
+    def parse(self, template): raise NotImplementedError
+    def render(self, **args): raise NotImplementedError
+    @classmethod
+    def find(cls, name):
+        files = [path % name for path in TEMPLATE_PATH if os.path.isfile(path % name)]
+        if files:
+            return cls(filename = files[0])
+        else:
+            raise TemplateError(&#39;Template not found: %s&#39; % repr(name))
+</code></pre><p>Bottle中模板类都是继承BaseTemplate类，BaseTemplate类是一个抽象类，子类必须实现parse和render方法。BaseTemplate类中各个方法的意义：</p>
 <ul>
 <li>parse：解析模板文件中的Python语句</li>
 <li>render：将模板文件渲染成html页面</li>
 <li>find：类方法，查找模板文件</li>
 </ul>
-<h3 id="SimpleTemplate类"><a href="#SimpleTemplate类" class="headerlink" title="SimpleTemplate类"></a>SimpleTemplate类</h3><p>SimpleTemplate类的源码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">class SimpleTemplate(BaseTemplate):</span><br><span class="line"></span><br><span class="line">    re_python = re.compile(r&apos;^\s*%\s*(?:(if|elif|else|try|except|finally|for|while|with|def|class)|(include.*)|(end.*)|(.*))&apos;)</span><br><span class="line">    re_inline = re.compile(r&apos;\&#123;\&#123;(.*?)\&#125;\&#125;&apos;)</span><br><span class="line">    dedent_keywords = (&apos;elif&apos;, &apos;else&apos;, &apos;except&apos;, &apos;finally&apos;)</span><br><span class="line"></span><br><span class="line">    def parse(self, template):</span><br><span class="line">        indent = 0</span><br><span class="line">        strbuffer = []</span><br><span class="line">        code = []</span><br><span class="line">        self.subtemplates = &#123;&#125;</span><br><span class="line">        class PyStmt(str):</span><br><span class="line">            def __repr__(self): return &apos;str(&apos; + self + &apos;)&apos;</span><br><span class="line">        def flush():</span><br><span class="line">            if len(strbuffer):</span><br><span class="line">                code.append(&quot; &quot; * indent + &quot;stdout.append(%s)&quot; % repr(&apos;&apos;.join(strbuffer)))</span><br><span class="line">                code.append(&quot;\n&quot; * len(strbuffer)) # to preserve line numbers </span><br><span class="line">                del strbuffer[:]</span><br><span class="line">        for line in template.splitlines(True):</span><br><span class="line">            m = self.re_python.match(line)</span><br><span class="line">            if m:</span><br><span class="line">                flush()</span><br><span class="line">                keyword, include, end, statement = m.groups()</span><br><span class="line">                if keyword:</span><br><span class="line">                    if keyword in self.dedent_keywords:</span><br><span class="line">                        indent -= 1</span><br><span class="line">                    code.append(&quot; &quot; * indent + line[m.start(1):])</span><br><span class="line">                    indent += 1</span><br><span class="line">                elif include:</span><br><span class="line">                    tmp = line[m.end(2):].strip().split(None, 1)</span><br><span class="line">                    name = tmp[0]</span><br><span class="line">                    args = tmp[1:] and tmp[1] or &apos;&apos;</span><br><span class="line">                    self.subtemplates[name] = SimpleTemplate.find(name)</span><br><span class="line">                    code.append(&quot; &quot; * indent + &quot;stdout.append(_subtemplates[%s].render(%s))\n&quot; % (repr(name), args))</span><br><span class="line">                elif end:</span><br><span class="line">                    indent -= 1</span><br><span class="line">                    code.append(&quot; &quot; * indent + &apos;#&apos; + line[m.start(3):])</span><br><span class="line">                elif statement:</span><br><span class="line">                    code.append(&quot; &quot; * indent + line[m.start(4):])</span><br><span class="line">            else:</span><br><span class="line">                splits = self.re_inline.split(line) # text, (expr, text)*</span><br><span class="line">                if len(splits) == 1:</span><br><span class="line">                    strbuffer.append(line)</span><br><span class="line">                else:</span><br><span class="line">                    flush()</span><br><span class="line">                    for i in xrange(1, len(splits), 2):</span><br><span class="line">                        splits[i] = PyStmt(splits[i])</span><br><span class="line">                    code.append(&quot; &quot; * indent + &quot;stdout.extend(%s)\n&quot; % repr(splits))</span><br><span class="line">        flush()</span><br><span class="line">        self.co = compile(&quot;&quot;.join(code), self.source, &apos;exec&apos;)</span><br><span class="line"></span><br><span class="line">    def render(self, **args):</span><br><span class="line">        &apos;&apos;&apos; Returns the rendered template using keyword arguments as local variables. &apos;&apos;&apos;</span><br><span class="line">        args[&apos;stdout&apos;] = []</span><br><span class="line">        args[&apos;_subtemplates&apos;] = self.subtemplates</span><br><span class="line">        eval(self.co, args, globals())</span><br><span class="line">        return &apos;&apos;.join(args[&apos;stdout&apos;])</span><br></pre></td></tr></table></figure></p>
-<p>SimpleTemplate类中，parse方法会首先通过正则把模板内容转换为Python字符串代码，然后再使用compile函数将代码编译成字节码，在调用render方法时，字节码被执行，渲染为包含数据的html页面。</p>
-<h3 id="全局函数template"><a href="#全局函数template" class="headerlink" title="全局函数template"></a>全局函数template</h3><p>template函数源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def template(template, template_adapter=SimpleTemplate, **args):</span><br><span class="line">    &apos;&apos;&apos; Returns a string from a template &apos;&apos;&apos;</span><br><span class="line">    if template not in TEMPLATES:</span><br><span class="line">        if template.find(&quot;\n&quot;) == -1 and template.find(&quot;&#123;&quot;) == -1 and template.find(&quot;%&quot;) == -1:</span><br><span class="line">            try:</span><br><span class="line">                TEMPLATES[template] = template_adapter.find(template)</span><br><span class="line">            except TemplateNotFoundError: pass</span><br><span class="line">        else:</span><br><span class="line">            TEMPLATES[template] = template_adapter(template)</span><br><span class="line">    if template not in TEMPLATES:</span><br><span class="line">        abort(500, &apos;Template not found&apos;)</span><br><span class="line">    args[&apos;abort&apos;] = abort</span><br><span class="line">    args[&apos;request&apos;] = request</span><br><span class="line">    args[&apos;response&apos;] = response</span><br><span class="line">    return TEMPLATES[template].render(**args)</span><br></pre></td></tr></table></figure></p>
-<p>template函数根据不同的模板渲染解析引擎，将模板文件渲染成html页面。在template中，每个模板会生成一个模板解析引擎对象，并放在全局变量TEMPLATES中，如果该模板的对象已经存在，直接调用该对象的render方法，如果不存在，创建一个并放入TEMPLATES中，执行render方法。</p>
-</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" data-id="ciudj2kug00012hcdq898m0t1" class="article-share-link">分享到</a><div class="tags"><a href="/tags/源码/">源码</a><a href="/tags/Python/">Python</a><a href="/tags/Bottle/">Bottle</a></div><div class="post-nav"><a href="/2016/06/Clojure-开发环境搭建/" class="pre">Clojure 开发环境搭建</a><a href="/2016/06/多说评论添加显示浏览器以及操作系统信息/" class="next">多说评论添加显示浏览器以及操作系统信息</a></div><div data-thread-key="2016/06/Bottle-源码学习/" data-title="Bottle 源码学习" data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/06/Bottle-源码学习/" data-title="Bottle 源码学习" data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.pfchai.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/源码/" style="font-size: 15px;">源码</a> <a href="/tags/Bottle/" style="font-size: 15px;">Bottle</a> <a href="/tags/Clojure/" style="font-size: 15px;">Clojure</a> <a href="/tags/Lisp/" style="font-size: 15px;">Lisp</a> <a href="/tags/FP/" style="font-size: 15px;">FP</a> <a href="/tags/开发环境/" style="font-size: 15px;">开发环境</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/Sublime-Text/" style="font-size: 15px;">Sublime Text</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/MATLAB/" style="font-size: 15px;">MATLAB</a> <a href="/tags/编码/" style="font-size: 15px;">编码</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/Python-解析-开头的字符串/">Python 解析&#开头的字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/Clojure-爬虫：抓取花瓣网图片/">Clojure 爬虫：抓取花瓣网图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/高逼格使用MATLAB之-少写for循环/">高逼格使用MATLAB之: 少写for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Clojure-开发环境搭建/">Clojure 开发环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Bottle-源码学习/">Bottle 源码学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/多说评论添加显示浏览器以及操作系统信息/">多说评论添加显示浏览器以及操作系统信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Hexo-搭建博客/">Hexo 搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Django中加入富文本编辑器/">Django中加入富文本编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/leetcode-刷题（shell部分）/">leetcode 刷题（shell部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/Sublime-Text-3-教程/">Sublime Text 3 教程</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.coolshell.cn/" title="酷壳" target="_blank">酷壳</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a><ul></ul><a href="http://tools.pfchai.com/" title="我的一个在线图像去雾应用" target="_blank">我的一个在线图像去雾应用</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">chai's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'blogpfchai'};
+<h3 id="SimpleTemplate类"><a href="#SimpleTemplate类" class="headerlink" title="SimpleTemplate类"></a>SimpleTemplate类</h3><p>SimpleTemplate类的源码：</p>
+<pre><code>class SimpleTemplate(BaseTemplate):
+
+    re_python = re.compile(r&#39;^\s*%\s*(?:(if|elif|else|try|except|finally|for|while|with|def|class)|(include.*)|(end.*)|(.*))&#39;)
+    re_inline = re.compile(r&#39;\{\{(.*?)\}\}&#39;)
+    dedent_keywords = (&#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;)
+
+    def parse(self, template):
+        indent = 0
+        strbuffer = []
+        code = []
+        self.subtemplates = {}
+        class PyStmt(str):
+            def __repr__(self): return &#39;str(&#39; + self + &#39;)&#39;
+        def flush():
+            if len(strbuffer):
+                code.append(&quot; &quot; * indent + &quot;stdout.append(%s)&quot; % repr(&#39;&#39;.join(strbuffer)))
+                code.append(&quot;\n&quot; * len(strbuffer)) # to preserve line numbers 
+                del strbuffer[:]
+        for line in template.splitlines(True):
+            m = self.re_python.match(line)
+            if m:
+                flush()
+                keyword, include, end, statement = m.groups()
+                if keyword:
+                    if keyword in self.dedent_keywords:
+                        indent -= 1
+                    code.append(&quot; &quot; * indent + line[m.start(1):])
+                    indent += 1
+                elif include:
+                    tmp = line[m.end(2):].strip().split(None, 1)
+                    name = tmp[0]
+                    args = tmp[1:] and tmp[1] or &#39;&#39;
+                    self.subtemplates[name] = SimpleTemplate.find(name)
+                    code.append(&quot; &quot; * indent + &quot;stdout.append(_subtemplates[%s].render(%s))\n&quot; % (repr(name), args))
+                elif end:
+                    indent -= 1
+                    code.append(&quot; &quot; * indent + &#39;#&#39; + line[m.start(3):])
+                elif statement:
+                    code.append(&quot; &quot; * indent + line[m.start(4):])
+            else:
+                splits = self.re_inline.split(line) # text, (expr, text)*
+                if len(splits) == 1:
+                    strbuffer.append(line)
+                else:
+                    flush()
+                    for i in xrange(1, len(splits), 2):
+                        splits[i] = PyStmt(splits[i])
+                    code.append(&quot; &quot; * indent + &quot;stdout.extend(%s)\n&quot; % repr(splits))
+        flush()
+        self.co = compile(&quot;&quot;.join(code), self.source, &#39;exec&#39;)
+
+    def render(self, **args):
+        &#39;&#39;&#39; Returns the rendered template using keyword arguments as local variables. &#39;&#39;&#39;
+        args[&#39;stdout&#39;] = []
+        args[&#39;_subtemplates&#39;] = self.subtemplates
+        eval(self.co, args, globals())
+        return &#39;&#39;.join(args[&#39;stdout&#39;])
+</code></pre><p>SimpleTemplate类中，parse方法会首先通过正则把模板内容转换为Python字符串代码，然后再使用compile函数将代码编译成字节码，在调用render方法时，字节码被执行，渲染为包含数据的html页面。</p>
+<h3 id="全局函数template"><a href="#全局函数template" class="headerlink" title="全局函数template"></a>全局函数template</h3><p>template函数源码</p>
+<pre><code>def template(template, template_adapter=SimpleTemplate, **args):
+    &#39;&#39;&#39; Returns a string from a template &#39;&#39;&#39;
+    if template not in TEMPLATES:
+        if template.find(&quot;\n&quot;) == -1 and template.find(&quot;{&quot;) == -1 and template.find(&quot;%&quot;) == -1:
+            try:
+                TEMPLATES[template] = template_adapter.find(template)
+            except TemplateNotFoundError: pass
+        else:
+            TEMPLATES[template] = template_adapter(template)
+    if template not in TEMPLATES:
+        abort(500, &#39;Template not found&#39;)
+    args[&#39;abort&#39;] = abort
+    args[&#39;request&#39;] = request
+    args[&#39;response&#39;] = response
+    return TEMPLATES[template].render(**args)
+</code></pre><p>template函数根据不同的模板渲染解析引擎，将模板文件渲染成html页面。在template中，每个模板会生成一个模板解析引擎对象，并放在全局变量TEMPLATES中，如果该模板的对象已经存在，直接调用该对象的render方法，如果不存在，创建一个并放入TEMPLATES中，执行render方法。</p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.1" async></script><a data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" data-id="ciudqt7740001sccdvxjpijmj" class="article-share-link">分享到</a><div class="tags"><a href="/tags/源码/">源码</a><a href="/tags/Python/">Python</a><a href="/tags/Bottle/">Bottle</a></div><div class="post-nav"><a href="/2016/06/Clojure-开发环境搭建/" class="pre">Clojure 开发环境搭建</a><a href="/2016/06/多说评论添加显示浏览器以及操作系统信息/" class="next">多说评论添加显示浏览器以及操作系统信息</a></div><div data-thread-key="2016/06/Bottle-源码学习/" data-title="Bottle 源码学习" data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" class="ds-share flat"><div class="ds-share-inline"><ul class="ds-share-icons-16"><li data-toggle="ds-share-icons-more"><a href="javascript:void(0);" class="ds-more">分享到：</a></li><li><a href="javascript:void(0);" data-service="weibo" class="ds-weibo">微博</a></li><li><a href="javascript:void(0);" data-service="qzone" class="ds-qzone">QQ空间</a></li><li><a href="javascript:void(0);" data-service="qqt" class="ds-qqt">腾讯微博</a></li><li><a href="javascript:void(0);" data-service="wechat" class="ds-wechat">微信</a></li></ul><div class="ds-share-icons-more"></div></div></div><div data-thread-key="2016/06/Bottle-源码学习/" data-title="Bottle 源码学习" data-url="http://blog.pfchai.com/2016/06/Bottle-源码学习/" data-author-key="1" class="ds-thread"></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://blog.pfchai.com"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/开发/" style="font-size: 15px;">开发</a> <a href="/tags/源码/" style="font-size: 15px;">源码</a> <a href="/tags/Bottle/" style="font-size: 15px;">Bottle</a> <a href="/tags/Clojure/" style="font-size: 15px;">Clojure</a> <a href="/tags/Lisp/" style="font-size: 15px;">Lisp</a> <a href="/tags/FP/" style="font-size: 15px;">FP</a> <a href="/tags/开发环境/" style="font-size: 15px;">开发环境</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/Django/" style="font-size: 15px;">Django</a> <a href="/tags/Python/" style="font-size: 15px;">Python</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/博客/" style="font-size: 15px;">博客</a> <a href="/tags/教程/" style="font-size: 15px;">教程</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/Sublime-Text/" style="font-size: 15px;">Sublime Text</a> <a href="/tags/leetcode/" style="font-size: 15px;">leetcode</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/MATLAB/" style="font-size: 15px;">MATLAB</a> <a href="/tags/编码/" style="font-size: 15px;">编码</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/09/Python-解析-开头的字符串/">Python 解析&#开头的字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/Clojure-爬虫：抓取花瓣网图片/">Clojure 爬虫：抓取花瓣网图片</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/高逼格使用MATLAB之-少写for循环/">高逼格使用MATLAB之: 少写for循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Clojure-开发环境搭建/">Clojure 开发环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/Bottle-源码学习/">Bottle 源码学习</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/多说评论添加显示浏览器以及操作系统信息/">多说评论添加显示浏览器以及操作系统信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Hexo-搭建博客/">Hexo 搭建博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/Django中加入富文本编辑器/">Django中加入富文本编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/leetcode-刷题（shell部分）/">leetcode 刷题（shell部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/Sublime-Text-3-教程/">Sublime Text 3 教程</a></li></ul></div><div class="widget"><div class="comments-title"><i class="fa fa-comment-o"> 最近评论</i></div><div data-num-items="5" data-show-avatars="0" data-show-time="1" data-show-admin="0" data-excerpt-length="32" data-show-title="1" class="ds-recent-comments"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://www.coolshell.cn/" title="酷壳" target="_blank">酷壳</a><ul></ul><a href="http://www.ruanyifeng.com/blog/" title="阮一峰的网络日志" target="_blank">阮一峰的网络日志</a><ul></ul><a href="http://www.liaoxuefeng.com/" title="廖雪峰的官方网站" target="_blank">廖雪峰的官方网站</a><ul></ul><a href="http://tools.pfchai.com/" title="我的一个在线图像去雾应用" target="_blank">我的一个在线图像去雾应用</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">© <a href="/." rel="nofollow">chai's blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.1" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.1" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.1"><script>var duoshuoQuery = {short_name:'blogpfchai'};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
