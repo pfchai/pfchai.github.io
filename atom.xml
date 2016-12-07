@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-12-07T03:51:28.228Z</updated>
+  <updated>2016-12-07T05:11:27.913Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://blog.pfchai.com/2016/12/%E5%A6%82%E4%BD%95%E5%9C%A8Github%E4%B8%AD%E5%8F%91%E9%80%81Pull-Request/"/>
     <id>http://blog.pfchai.com/2016/12/如何在Github中发送Pull-Request/</id>
     <published>2016-12-07T03:49:09.000Z</published>
-    <updated>2016-12-07T03:51:28.228Z</updated>
+    <updated>2016-12-07T05:11:27.913Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;发送pull-request步骤&quot;&gt;&lt;a href=&quot;#发送pull-request步骤&quot; class=&quot;headerlink&quot; title=&quot;发送pull request步骤&quot;&gt;&lt;/a&gt;发送pull request步骤&lt;/h2&gt;&lt;ol&gt;
+    <content type="html">&lt;p&gt;Github现在是越来越流行，但看到周围太多人只会&lt;code&gt;git clone&lt;/code&gt;，好点的可以&lt;code&gt;git push&lt;/code&gt;，之后再也不管了。我一直相信，好的项目是需要一直维护不断重构的，优秀的开源项目是希望更多人参与进来的。&lt;br&gt;我虽说了解一些，但很多具体细节也不明白，提交PR时一直担心因为自己的不规范给其他人造成困扰，以至于我不敢参与进去，不敢提交PR。&lt;br&gt;这篇文章是讲如何在Github中发送PR以及PR的一些注意事项，希望能为大家提供点帮助。&lt;/p&gt;
+&lt;h2 id=&quot;发送pull-request步骤&quot;&gt;&lt;a href=&quot;#发送pull-request步骤&quot; class=&quot;headerlink&quot; title=&quot;发送pull request步骤&quot;&gt;&lt;/a&gt;发送pull request步骤&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;查看要修正的源代码&lt;/li&gt;
 &lt;li&gt;Fork项目到自己的仓库中&lt;/li&gt;
 &lt;li&gt;从自己的仓库中clone项目到本地&lt;/li&gt;
@@ -60,8 +61,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;发送pull-request步骤&quot;&gt;&lt;a href=&quot;#发送pull-request步骤&quot; class=&quot;headerlink&quot; title=&quot;发送pull request步骤&quot;&gt;&lt;/a&gt;发送pull request步骤&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;查看要修正的源代
+      &lt;p&gt;Github现在是越来越流行，但看到周围太多人只会&lt;code&gt;git clone&lt;/code&gt;，好点的可以&lt;code&gt;git push&lt;/code&gt;，之后再也不管了。我一直相信，好的项目是需要一直维护不断重构的，优秀的开源项目是希望更多人参与进来的。&lt;br&gt;我虽说了解一些，
     
     </summary>
     
