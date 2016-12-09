@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.pfchai.com/about/index.html</loc>
+    
+    <lastmod>2016-12-09T07:17:31.013Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.pfchai.com/2016/12/%E5%A6%82%E4%BD%95%E5%9C%A8Github%E4%B8%AD%E5%8F%91%E9%80%81Pull-Request/</loc>
     
     <lastmod>2016-12-07T05:11:27.913Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://blog.pfchai.com/2016/04/Sublime-Text-3-%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2016-07-22T03:22:23.881Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.pfchai.com/about/index.html</loc>
-    
-    <lastmod>2016-07-21T03:21:41.420Z</lastmod>
     
   </url>
   
