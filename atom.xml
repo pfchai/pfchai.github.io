@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-12-07T05:11:27.913Z</updated>
+  <updated>2016-04-24T04:59:54.000Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -16,11 +16,38 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hello World</title>
+    <link href="http://blog.pfchai.com/2016/12/hello-world/"/>
+    <id>http://blog.pfchai.com/2016/12/hello-world/</id>
+    <published>2016-12-10T16:46:56.229Z</published>
+    <updated>2016-04-24T04:59:54.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>如何在Github中发送Pull Request</title>
     <link href="http://blog.pfchai.com/2016/12/%E5%A6%82%E4%BD%95%E5%9C%A8Github%E4%B8%AD%E5%8F%91%E9%80%81Pull-Request/"/>
     <id>http://blog.pfchai.com/2016/12/如何在Github中发送Pull-Request/</id>
     <published>2016-12-07T03:49:09.000Z</published>
-    <updated>2016-12-07T05:11:27.913Z</updated>
+    <updated>2016-12-07T05:11:27.000Z</updated>
     
     <content type="html">&lt;p&gt;Github现在是越来越流行，但看到周围太多人只会&lt;code&gt;git clone&lt;/code&gt;，好点的可以&lt;code&gt;git push&lt;/code&gt;，之后再也不管了。我一直相信，好的项目是需要一直维护不断重构的，优秀的开源项目是希望更多人参与进来的。&lt;br&gt;我虽说了解一些，但很多具体细节也不明白，提交PR时一直担心因为自己的不规范给其他人造成困扰，以至于我不敢参与进去，不敢提交PR。&lt;br&gt;这篇文章是讲如何在Github中发送PR以及PR的一些注意事项，希望能为大家提供点帮助。&lt;/p&gt;
 &lt;h2 id=&quot;发送pull-request步骤&quot;&gt;&lt;a href=&quot;#发送pull-request步骤&quot; class=&quot;headerlink&quot; title=&quot;发送pull request步骤&quot;&gt;&lt;/a&gt;发送pull request步骤&lt;/h2&gt;&lt;ol&gt;
@@ -77,7 +104,7 @@
     <link href="http://blog.pfchai.com/2016/10/%E5%9B%BE%E5%83%8F%E5%8E%BB%E9%9B%BE/"/>
     <id>http://blog.pfchai.com/2016/10/图像去雾/</id>
     <published>2016-10-22T14:21:50.000Z</published>
-    <updated>2016-10-22T16:02:12.196Z</updated>
+    <updated>2016-10-22T16:02:12.000Z</updated>
     
     <content type="html">&lt;p&gt;刷博客的时候，无意中看到一篇介绍图像去雾的博客，讲到何凯明的《Single Image Haze Removal Using Dark Channel Prior》这篇文章，2009年CVPR的最佳论文，简单看了下介绍，瞬间就对作者佩服的五体投地，感叹这才叫做研究。&lt;br&gt;论文《Single Image Haze Removal Using Dark Channel Prior》可以在&lt;a href=&quot;http://kaiminghe.com/cvpr09/index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;下载到，并且里面还有论文相关的幻灯片和其他参考论文等信息。&lt;/p&gt;
 &lt;h2 id=&quot;1-论文的主要介绍&quot;&gt;&lt;a href=&quot;#1-论文的主要介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 论文的主要介绍&quot;&gt;&lt;/a&gt;1. 论文的主要介绍&lt;/h2&gt;&lt;h3 id=&quot;1-1-暗通道先验&quot;&gt;&lt;a href=&quot;#1-1-暗通道先验&quot; class=&quot;headerlink&quot; title=&quot;1.1 暗通道先验&quot;&gt;&lt;/a&gt;1.1 暗通道先验&lt;/h3&gt;&lt;p&gt;暗通道先验是基于户外无雾图像的观察，在大部分不包含天空的图像中，在r,g,b三个通道中，至少有一个通道的最小灰度值非常小。用公式表示为，图像的暗通道J定义为：&lt;br&gt;$$&lt;br&gt;J^{dark}(x)=\min_{y\in{r,g,b}}(\min_{y\in\Omega(x)}(J^c(y))&lt;br&gt;$$&lt;br&gt;其中，$J^c$表示J的颜色通道，$\Omega(x)$表示以x为中心的窗口。&lt;br&gt;观察发现，对于户外无雾图片，$J^{dark}$值是非常小的，由此，称这个统计规律为暗通道先验。&lt;/p&gt;
@@ -114,7 +141,7 @@
     <link href="http://blog.pfchai.com/2016/09/Python-%E8%A7%A3%E6%9E%90-%E5%BC%80%E5%A4%B4%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://blog.pfchai.com/2016/09/Python-解析-开头的字符串/</id>
     <published>2016-09-18T09:38:09.000Z</published>
-    <updated>2016-09-18T09:39:41.613Z</updated>
+    <updated>2016-09-18T09:39:41.000Z</updated>
     
     <content type="html">&lt;p&gt;爬虫的时候，发现网页中好多中文都是用&amp;amp;#开头的一串字符表示，搞不懂是什么编码，直到看到知乎上的一个&lt;a href=&quot;http://zhihu.com/question/21390312/answer/18091465&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;回答&lt;/a&gt;。&lt;br&gt;引用原作者的话，这一串字符是HTML、XML等SGML类语言的转义序列，不是编码。而以&lt;code&gt;&amp;amp;#&lt;/code&gt;开头的叫numeric character reference（NCR），&lt;code&gt;&amp;amp;#&lt;/code&gt;后面可以跟十进制数字或是以&lt;code&gt;x&lt;/code&gt;开头的16进制数字，数字为目标字符的Unicode code point，并以&lt;code&gt;；&lt;/code&gt;结束。具体的解释可以看&lt;a href=&quot;http://zhihu.com/question/21390312/answer/18091465&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原答案&lt;/a&gt;或是自行搜索。&lt;/p&gt;
 &lt;p&gt;Python 中处理这种转义序列也很简单，直接使用标准库中的HTMLParser解析即可：&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;from HTMLParser import HTMLParser&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;print HTMLParser().unescape(&amp;apos;&amp;amp;#20013;&amp;amp;#22269;&amp;apos;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -136,7 +163,7 @@
     <link href="http://blog.pfchai.com/2016/08/Clojure-%E7%88%AC%E8%99%AB%EF%BC%9A%E6%8A%93%E5%8F%96%E8%8A%B1%E7%93%A3%E7%BD%91%E5%9B%BE%E7%89%87/"/>
     <id>http://blog.pfchai.com/2016/08/Clojure-爬虫：抓取花瓣网图片/</id>
     <published>2016-08-28T14:10:57.000Z</published>
-    <updated>2016-09-06T13:02:58.897Z</updated>
+    <updated>2016-09-06T13:02:58.000Z</updated>
     
     <content type="html">&lt;p&gt;最近刚看完《Clojure程序设计》，书上的例子都能看懂，但要开始用Clojure还是有点不知道怎么下手，想写个小程序练练手。之前用Python写过一个抓取花瓣网美女画板下图片的小爬虫，爬虫过程很简单，也没有涉及登录验证或是反爬虫之类的，用来熟悉新语言非常合适，就有了这个Clojure版的爬虫。&lt;/p&gt;
 &lt;p&gt;我用Python的实现可以看我之前的&lt;a href=&quot;http://www.cnblogs.com/nan86150/p/4272452.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客&lt;/a&gt;。&lt;/p&gt;
@@ -195,7 +222,7 @@
     <link href="http://blog.pfchai.com/2016/07/%E9%AB%98%E9%80%BC%E6%A0%BC%E4%BD%BF%E7%94%A8MATLAB%E4%B9%8B-%E5%B0%91%E5%86%99for%E5%BE%AA%E7%8E%AF/"/>
     <id>http://blog.pfchai.com/2016/07/高逼格使用MATLAB之-少写for循环/</id>
     <published>2016-07-19T12:34:44.000Z</published>
-    <updated>2016-10-17T03:55:12.600Z</updated>
+    <updated>2016-10-17T03:55:12.000Z</updated>
     
     <content type="html">&lt;p&gt;看到太多的人把MATLAB当成C语言来写，甚至像矩阵求和这种的，都要写个for循环来做，不仅整个程序看起来很乱，而且不管开发效率还是程序执行效率都降低了太多。我在研一学人工神经网络这门课程的时候，就有看过别人写的一些MATLAB程序，用矩阵的一些操作代替了for循环，程序看起来简洁干净，效率也有提高。&lt;br&gt;这篇文章接下来会介绍几个函数，能把原来需要用for循环来处理矩阵的，通过自带函数替换掉for循环。用这些函数的好处是代码会简洁很多，同时MATLAB也会优化操作过程，提高效率。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -284,7 +311,7 @@
     <link href="http://blog.pfchai.com/2016/06/Clojure-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://blog.pfchai.com/2016/06/Clojure-开发环境搭建/</id>
     <published>2016-06-19T15:45:01.000Z</published>
-    <updated>2016-06-19T15:47:07.191Z</updated>
+    <updated>2016-06-19T15:47:07.000Z</updated>
     
     <content type="html">&lt;p&gt;一直想要学习一门Lisp方言，想了解被很多大牛推荐的函数式编程（FP），自己却不清楚要从哪开始。直到在图书馆无意中看到一本讲Clojure的书，好奇就借了随便翻翻，很巧的是同时顺手借的《七周七并发模型》里面也差不多有一半都是用Clojure举的例子，也算是缘分吧，就开始看Clojure。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -341,7 +368,7 @@
     <link href="http://blog.pfchai.com/2016/06/Bottle-%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/"/>
     <id>http://blog.pfchai.com/2016/06/Bottle-源码学习/</id>
     <published>2016-06-16T14:34:14.000Z</published>
-    <updated>2016-06-16T14:36:29.323Z</updated>
+    <updated>2016-06-16T14:36:29.000Z</updated>
     
     <content type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/bottlepy/bottle&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Bottle&lt;/a&gt;是一个快速、简单、轻量级的WSGI微框架，整个项目只有一个文件，并且，除了Python标准库以外，Bottle不依赖其他第三方库。&lt;/p&gt;
 &lt;p&gt;为了对Bottle项目有个大致的了解，我们选择&lt;code&gt;0.4.10&lt;/code&gt;版本研究，这个版本中，Bottle代码量不超过1000行，基本功能都已经实现并且研究起来也会容易些。下面的内容，如果没有特殊说明，都是指&lt;code&gt;0.4.10&lt;/code&gt;版本的源码。&lt;/p&gt;
@@ -396,7 +423,7 @@
     <link href="http://blog.pfchai.com/2016/06/%E5%A4%9A%E8%AF%B4%E8%AF%84%E8%AE%BA%E6%B7%BB%E5%8A%A0%E6%98%BE%E7%A4%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BB%A5%E5%8F%8A%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF/"/>
     <id>http://blog.pfchai.com/2016/06/多说评论添加显示浏览器以及操作系统信息/</id>
     <published>2016-06-16T11:46:16.000Z</published>
-    <updated>2016-06-16T11:58:25.855Z</updated>
+    <updated>2016-06-16T11:58:25.000Z</updated>
     
     <content type="html">&lt;p&gt;想要在多说评论中显示浏览器以及操作系统信息，第一步当然是获取信息，这部分的处理放在多说的embed.js文件中，还有一部分是显示浏览器以及操作系统信息，这部分在多说系统中添加自定义的CSS来实现。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -431,7 +458,7 @@
     <link href="http://blog.pfchai.com/2016/05/Hexo-%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"/>
     <id>http://blog.pfchai.com/2016/05/Hexo-搭建博客/</id>
     <published>2016-05-12T13:37:05.000Z</published>
-    <updated>2016-07-25T15:47:19.385Z</updated>
+    <updated>2016-07-25T15:47:19.000Z</updated>
     
     <content type="html">&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;
 &lt;h1 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h1&gt;&lt;p&gt;我的开发环境是Ubuntu 14.04，node及Hexo的版本为：&lt;/p&gt;
@@ -495,7 +522,7 @@
     <link href="http://blog.pfchai.com/2016/05/Django%E4%B8%AD%E5%8A%A0%E5%85%A5%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8/"/>
     <id>http://blog.pfchai.com/2016/05/Django中加入富文本编辑器/</id>
     <published>2016-05-10T10:57:46.000Z</published>
-    <updated>2016-07-22T03:23:33.155Z</updated>
+    <updated>2016-07-22T03:23:33.000Z</updated>
     
     <content type="html">&lt;p&gt;目前主流有两个插件，一个是&lt;a href=&quot;http://kindeditor.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;KindEditor&lt;/a&gt;(遵循LGPL v2)，另一个是百度的&lt;a href=&quot;http://ueditor.baidu.com/website/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;uEditor&lt;/a&gt;(遵循MIT协议)&lt;/p&gt;
 &lt;p&gt;KindEditor 是一套开源的在线HTML编辑器，主要用于让用户在网站上获得所见即所得编辑效果，开发人员可以用 KindEditor 把传统的多行文本输入框(textarea)替换为可视化的富文本输入框。 KindEditor 使用 JavaScript 编写，可以无缝地与 Java、.NET、PHP、ASP 等程序集成，比较适合在 CMS、商城、论坛、博客、Wiki、电子邮件等互联网应用上使用。&lt;/p&gt;
@@ -528,7 +555,7 @@
     <link href="http://blog.pfchai.com/2016/05/leetcode-%E5%88%B7%E9%A2%98%EF%BC%88shell%E9%83%A8%E5%88%86%EF%BC%89/"/>
     <id>http://blog.pfchai.com/2016/05/leetcode-刷题（shell部分）/</id>
     <published>2016-05-05T13:17:08.000Z</published>
-    <updated>2016-07-22T03:24:29.285Z</updated>
+    <updated>2016-07-22T03:24:29.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;192-Word-Frequency&quot;&gt;&lt;a href=&quot;#192-Word-Frequency&quot; class=&quot;headerlink&quot; title=&quot;192. Word Frequency&quot;&gt;&lt;/a&gt;192. &lt;a href=&quot;https://leetcode.com/problems/word-frequency/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Word Frequency&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a href=&quot;#题目描述&quot; class=&quot;headerlink&quot; title=&quot;题目描述&quot;&gt;&lt;/a&gt;题目描述&lt;/h3&gt;&lt;p&gt;统计文件中各个单词出现的次数&lt;/p&gt;
 &lt;h3 id=&quot;解题思路&quot;&gt;&lt;a href=&quot;#解题思路&quot; class=&quot;headerlink&quot; title=&quot;解题思路&quot;&gt;&lt;/a&gt;解题思路&lt;/h3&gt;&lt;p&gt;只想到awk（awk几乎可以做任何事情…）&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;for(i=1; i&amp;lt;=NF; i++) r[$i] ++;&amp;#125;END&amp;#123;for (key in r)&amp;#123;print key &quot; &quot; r[key];&amp;#125;&amp;#125;&#39;&lt;/span&gt; words.txt | sort -k2nr&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
@@ -562,7 +589,7 @@
     <link href="http://blog.pfchai.com/2016/04/Sublime-Text-3-%E6%95%99%E7%A8%8B/"/>
     <id>http://blog.pfchai.com/2016/04/Sublime-Text-3-教程/</id>
     <published>2016-04-26T02:16:36.000Z</published>
-    <updated>2016-07-22T03:22:23.881Z</updated>
+    <updated>2016-07-22T03:22:23.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;1-安装与初始配置&quot;&gt;&lt;a href=&quot;#1-安装与初始配置&quot; class=&quot;headerlink&quot; title=&quot;1. 安装与初始配置&quot;&gt;&lt;/a&gt;1. 安装与初始配置&lt;/h2&gt;&lt;p&gt;安装在Ubuntu上，直接在&lt;a href=&quot;http://www.sublimetext.com/3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;下载deb包安装即可。&lt;br&gt;安装成功后，即可在命令行中打开软件&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;subl file       # 使用Sublime Text打开file文件&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;subl folder     # 使用Sublime Text打开folder文件夹&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;安装Package Control，参考&lt;a href=&quot;https://packagecontrol.io/installation&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方介绍的方法&lt;/a&gt;安装，之后使用&lt;code&gt;Ctrl + Shift + P&lt;/code&gt;打开命令面板，输入pcip就会出现Package Control。&lt;/p&gt;
@@ -721,33 +748,6 @@
       <category term="工具" scheme="http://blog.pfchai.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Sublime Text" scheme="http://blog.pfchai.com/tags/Sublime-Text/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://blog.pfchai.com/2016/04/hello-world/"/>
-    <id>http://blog.pfchai.com/2016/04/hello-world/</id>
-    <published>2016-04-24T04:59:54.983Z</published>
-    <updated>2016-04-24T04:59:54.983Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
     
   </entry>
   
