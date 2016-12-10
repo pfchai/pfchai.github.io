@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-12-10T16:50:27.773Z</updated>
+  <updated>2016-12-10T16:53:12.945Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -14,6 +14,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test image</title>
+    <link href="http://blog.pfchai.com/2016/12/test-image/"/>
+    <id>http://blog.pfchai.com/2016/12/test-image/</id>
+    <published>2016-12-10T16:52:30.000Z</published>
+    <updated>2016-12-10T16:53:12.945Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;/2016/12/test-image/psb.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/2016/12/test-image/psb.jpg&quot; alt=&quot;logo&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
