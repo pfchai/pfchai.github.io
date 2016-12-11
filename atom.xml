@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2016-12-11T04:35:15.530Z</updated>
+  <updated>2016-12-11T04:42:06.170Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://blog.pfchai.com/2016/12/Hexo%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%9B%BE%E7%89%87/"/>
     <id>http://blog.pfchai.com/2016/12/Hexo中使用图片/</id>
     <published>2016-12-11T03:41:32.000Z</published>
-    <updated>2016-12-11T04:35:15.530Z</updated>
+    <updated>2016-12-11T04:42:06.170Z</updated>
     
-    <content type="html">&lt;p&gt;&amp;#x6298;&amp;#x817E;&amp;#x4E86;&amp;#x4E00;&amp;#x4F1A;&amp;#x5982;&amp;#x4F55;&amp;#x7528;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x505A;&amp;#x56FE;&amp;#x5E8A;&amp;#xFF0C;&amp;#x56FE;&amp;#x7247;&amp;#x600E;&amp;#x4E48;&amp;#x90FD;&amp;#x4E0D;&amp;#x80FD;&amp;#x81EA;&amp;#x52A8;&amp;#x4F20;&amp;#x4E0D;&amp;#x5230;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x4E0A;&amp;#xFF0C;&amp;#x5E94;&amp;#x8BE5;&amp;#x662F;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x73B0;&amp;#x5728;&amp;#x7684;bucket&amp;#x4E0E;&amp;#x5916;&amp;#x94FE;&amp;#x5730;&amp;#x5740;&amp;#x4E0D;&amp;#x5339;&amp;#x914D;&amp;#x9020;&amp;#x6210;&amp;#x7684;&amp;#xFF0C;&amp;#x4E5F;&amp;#x4E0D;&amp;#x60F3;&amp;#x518D;&amp;#x753B;&amp;#x65F6;&amp;#x95F4;&amp;#x6298;&amp;#x817E;&amp;#x4E86;&amp;#xFF0C;&amp;#x5C31;&amp;#x7528;&amp;#x6700;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x628A;&amp;#x56FE;&amp;#x7247;&amp;#x4FDD;&amp;#x5B58;&amp;#x5728;&amp;#x672C;&amp;#x5730;&amp;#x3002;&lt;br&gt;&amp;#x5177;&amp;#x4F53;&amp;#x505A;&amp;#x6CD5;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x6309;&amp;#x7167;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&amp;#xFF0C;2&amp;#x6B65;&amp;#x5C31;&amp;#x641E;&amp;#x597D;&lt;/p&gt;
+    <content type="html">&lt;p&gt;&amp;#x6298;&amp;#x817E;&amp;#x4E86;&amp;#x4E00;&amp;#x4F1A;&amp;#x5982;&amp;#x4F55;&amp;#x7528;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x505A;&amp;#x56FE;&amp;#x5E8A;&amp;#xFF0C;&amp;#x56FE;&amp;#x7247;&amp;#x600E;&amp;#x4E48;&amp;#x90FD;&amp;#x4E0D;&amp;#x80FD;&amp;#x81EA;&amp;#x52A8;&amp;#x4F20;&amp;#x4E0D;&amp;#x5230;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x4E0A;&amp;#xFF0C;&amp;#x5E94;&amp;#x8BE5;&amp;#x662F;&amp;#x4E03;&amp;#x725B;&amp;#x4E91;&amp;#x73B0;&amp;#x5728;&amp;#x7684;bucket&amp;#x4E0E;&amp;#x5916;&amp;#x94FE;&amp;#x5730;&amp;#x5740;&amp;#x4E0D;&amp;#x5339;&amp;#x914D;&amp;#x9020;&amp;#x6210;&amp;#x7684;&amp;#xFF0C;&amp;#x4E5F;&amp;#x4E0D;&amp;#x60F3;&amp;#x518D;&amp;#x82B1;&amp;#x65F6;&amp;#x95F4;&amp;#x6298;&amp;#x817E;&amp;#x4E86;&amp;#xFF0C;&amp;#x5C31;&amp;#x7528;&amp;#x6700;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#xFF0C;&amp;#x76F4;&amp;#x63A5;&amp;#x628A;&amp;#x56FE;&amp;#x7247;&amp;#x4FDD;&amp;#x5B58;&amp;#x5728;&amp;#x672C;&amp;#x5730;&amp;#x3002;&lt;br&gt;&amp;#x5177;&amp;#x4F53;&amp;#x505A;&amp;#x6CD5;&amp;#x5F88;&amp;#x7B80;&amp;#x5355;&amp;#xFF0C;&amp;#x6309;&amp;#x7167;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x6B65;&amp;#x9AA4;&amp;#xFF0C;2&amp;#x6B65;&amp;#x5C31;&amp;#x641E;&amp;#x597D;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&amp;#x4FEE;&amp;#x6539;&amp;#x914D;&amp;#x7F6E;&amp;#x6587;&amp;#x4EF6;&lt;code&gt;_config.yml&lt;/code&gt;&lt;/p&gt;
  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;post_asset_folder:true&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -32,7 +32,7 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&amp;#x4E4B;&amp;#x540E;&amp;#xFF0C;&amp;#x65B0;&amp;#x5EFA;&amp;#x535A;&amp;#x5BA2;&amp;#x65F6;&amp;#xFF0C;&amp;#x4F1A;&amp;#x81EA;&amp;#x52A8;&amp;#x5728;&lt;code&gt;source/_post/&lt;/code&gt;&amp;#x521B;&amp;#x5EFA;&amp;#x4E00;&amp;#x4E2A;&amp;#x4E0E;&amp;#x535A;&amp;#x5BA2;&amp;#x540D;&amp;#x76F8;&amp;#x540C;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#xFF0C;&amp;#x6DFB;&amp;#x52A0;&amp;#x56FE;&amp;#x7247;&amp;#x65F6;&amp;#xFF0C;&amp;#x628A;&amp;#x56FE;&amp;#x7247;&amp;#x4E22;&amp;#x5230;&amp;#x8FD9;&amp;#x4E2A;&amp;#x6587;&amp;#x4EF6;&amp;#x5939;&amp;#x4E0B;&amp;#xFF0C;&amp;#x7136;&amp;#x540E;&amp;#x5728;&amp;#x6587;&amp;#x7AE0;&amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x65B9;&amp;#x5F0F;&amp;#x5F15;&amp;#x7528;&amp;#xFF1A;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;![img](img.jpg)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&amp;#x793A;&amp;#x4F8B;&amp;#x56FE;&amp;#x7247;&lt;br&gt;&lt;img src=&quot;/2016/12/Hexo&amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x56FE;&amp;#x7247;/programming_world.jpg&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x793A;&amp;#x4F8B;&amp;#x56FE;&amp;#x7247;&lt;br&gt;&lt;img src=&quot;/2016/12/Hexo&amp;#x4E2D;&amp;#x4F7F;&amp;#x7528;&amp;#x56FE;&amp;#x7247;/programming_world.jpg&quot; alt=&quot;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E16;&amp;#x754C;&quot;&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -43,33 +43,6 @@
     
     
       <category term="Hexo" scheme="http://blog.pfchai.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://blog.pfchai.com/2016/12/hello-world/"/>
-    <id>http://blog.pfchai.com/2016/12/hello-world/</id>
-    <published>2016-12-10T16:55:29.493Z</published>
-    <updated>2016-12-10T16:55:29.457Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
     
   </entry>
   
@@ -778,6 +751,33 @@
       <category term="工具" scheme="http://blog.pfchai.com/tags/%E5%B7%A5%E5%85%B7/"/>
     
       <category term="Sublime Text" scheme="http://blog.pfchai.com/tags/Sublime-Text/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://blog.pfchai.com/2016/04/hello-world/"/>
+    <id>http://blog.pfchai.com/2016/04/hello-world/</id>
+    <published>2016-04-24T12:11:08.000Z</published>
+    <updated>2016-12-11T04:51:40.754Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&amp;quot;My New Post&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
     
   </entry>
   
