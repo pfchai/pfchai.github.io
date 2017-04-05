@@ -203,8 +203,11 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="guestbook/index.html"
-           data-title="留言板" data-url="http://blog.pfchai.com/guestbook/index.html">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
       </div>
     
   </div>
@@ -281,23 +284,24 @@
 
     
   
-  
 
+  
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"blogpfchai"};
+    var disqus_config = function () {
+        this.page.url = 'http://blog.pfchai.com/guestbook/index.html';
+        this.page.identifier = 'guestbook/index.html';
+        this.page.title = '留言板';
+    };
     (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+    var d = document, s = d.createElement('script');
+
+    s.src = '//chais-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
   </script>
 
-
-  
   
 
 
