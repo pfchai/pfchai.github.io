@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.pfchai.com/"/>
-  <updated>2017-04-06T12:43:24.269Z</updated>
+  <updated>2018-08-05T13:49:06.974Z</updated>
   <id>http://blog.pfchai.com/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在C#中使用多线程的一个示例</title>
+    <link href="http://blog.pfchai.com/2018/08/%E5%9C%A8C-%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%80%E4%B8%AA%E7%A4%BA%E4%BE%8B/"/>
+    <id>http://blog.pfchai.com/2018/08/在C-中使用多线程的一个示例/</id>
+    <published>2018-08-05T13:44:51.000Z</published>
+    <updated>2018-08-05T13:49:06.974Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;strong&gt;&amp;#x95EE;&amp;#x9898;&amp;#x63CF;&amp;#x8FF0;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x5728;&amp;#x6700;&amp;#x8FD1;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x4EE3;&amp;#x7801;&amp;#x903B;&amp;#x8F91;&amp;#x662F;&amp;#x5BF9;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x4E2D;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x5143;&amp;#x7D20;&amp;#x8C03;&amp;#x7528;&amp;#x76F8;&amp;#x540C;&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x7ED3;&amp;#x679C;&amp;#xFF0C;&amp;#x4E14;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5904;&amp;#x7406;&amp;#x51FD;&amp;#x6570;&amp;#x8017;&amp;#x65F6;&amp;#x6BD4;&amp;#x8F83;&amp;#x4E45;&amp;#xFF0C;&amp;#x5178;&amp;#x578B;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x5E76;&amp;#x884C;&amp;#x5316;&amp;#x5904;&amp;#x7406;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#x3002;&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x601D;&amp;#x8DEF;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x4E0A;&amp;#x8FF0;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x53EF;&amp;#x4EE5;&amp;#x7B80;&amp;#x5316;&amp;#x6210;&amp;#x5982;&amp;#x4F55;&amp;#x5E76;&amp;#x884C;&amp;#x6267;&amp;#x884C;&lt;code&gt;map&lt;/code&gt;&amp;#x51FD;&amp;#x6570;&amp;#x6216;&amp;#x8005;&amp;#x5E76;&amp;#x884C;&amp;#x6267;&amp;#x884C;&lt;code&gt;foreach&lt;/code&gt;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5E78;&amp;#x8FD0;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x5728;.Net 4.0&amp;#x4E2D;&amp;#xFF0C;&amp;#x8FD9;&amp;#x4E24;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x90FD;&amp;#x6709;&amp;#x5E76;&amp;#x884C;&amp;#x7248;&amp;#x672C;&amp;#xFF0C;&amp;#x5206;&amp;#x522B;&amp;#x662F;PLINQ&amp;#x548C;Parallel.ForEach&amp;#x3002;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;#x89E3;&amp;#x51B3;&amp;#x7EC6;&amp;#x8282;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&amp;#x5E76;&amp;#x884C;&amp;#x5316;&amp;#x7684;&lt;code&gt;map&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; &amp;#x5728;C#&amp;#x4E2D;&amp;#xFF0C;&amp;#x662F;&amp;#x6CA1;&amp;#x6709;&amp;#x51FD;&amp;#x6570;&amp;#x5F0F;&amp;#x7F16;&amp;#x7A0B;&amp;#x4E2D;&amp;#x7684;&lt;code&gt;map&lt;/code&gt;&amp;#x3001;&lt;code&gt;reduce&lt;/code&gt;&amp;#x3001;&lt;code&gt;filter&lt;/code&gt;&amp;#x7B49;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x4F46;&amp;#x8FD9;&amp;#x51E0;&amp;#x4E2A;&amp;#x51FD;&amp;#x6570;&amp;#x90FD;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;LINQ&amp;#x6765;&amp;#x505A;&amp;#x5230;&amp;#xFF0C;&amp;#x5BF9;&amp;#x5E94;&amp;#x5173;&amp;#x7CFB;&amp;#x662F; &lt;code&gt;map &amp;lt;-&amp;gt; Select&lt;/code&gt;&amp;#x3001;&lt;code&gt;reduce &amp;lt;-&amp;gt; Aggregate&lt;/code&gt;&amp;#x3001;&lt;code&gt;filter &amp;lt;-&amp;gt; Where&lt;/code&gt;&amp;#x3002;&amp;#x5E76;&amp;#x4E14;&amp;#xFF0C;LINQ&amp;#x652F;&amp;#x6301;&amp;#x94FE;&amp;#x5F0F;&amp;#x64CD;&amp;#x4F5C;&amp;#xFF0C;&amp;#x518D;&amp;#x52A0;&amp;#x4E0A;C#&amp;#x4E5F;&amp;#x652F;&amp;#x6301;&amp;#x533F;&amp;#x540D;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5199;&amp;#x8D77;&amp;#x6765;&amp;#x975E;&amp;#x5E38;&amp;#x6E05;&amp;#x723D;&amp;#x5E72;&amp;#x51C0;&amp;#x3002;&amp;#x6BD4;&amp;#x5982;&amp;#xFF0C;&amp;#x9700;&amp;#x8981;&amp;#x8BA1;&amp;#x7B97;&amp;#x73ED;&amp;#x91CC;&amp;#x6240;&amp;#x6709;&amp;#x7537;&amp;#x751F;&amp;#x6210;&amp;#x7EE9;&amp;#x7684;&amp;#x603B;&amp;#x548C;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var scoreSum = students.Select(stu =&amp;gt; stu.score).Where(stu =&amp;gt; stu.gender == &amp;quot;male&amp;quot;).Aggregate((sum, next) =&amp;gt; sum + next);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; &amp;#x66F4;&amp;#x9177;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x5728;&amp;#x94FE;&amp;#x5F0F;&amp;#x8C03;&amp;#x7528;&amp;#x4E2D;&amp;#xFF0C;&amp;#x52A0;&amp;#x4E0A;&lt;code&gt;.AsParallel()&lt;/code&gt;&amp;#xFF0C;&amp;#x6574;&amp;#x4E2A;&amp;#x64CD;&amp;#x4F5C;&amp;#x8FC7;&amp;#x7A0B;&amp;#x5C31;&amp;#x53D8;&amp;#x6210;&amp;#x5E76;&amp;#x884C;&amp;#x7248;&amp;#x672C;&amp;#x4E86;&amp;#xFF0C;&amp;#x4E5F;&amp;#x5C31;&amp;#x662F;&amp;#x524D;&amp;#x9762;&amp;#x8BF4;&amp;#x5230;&amp;#x7684;PLINQ&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#x5E76;&amp;#x884C;&amp;#x5316;&amp;#x7684;&lt;code&gt;ForEach&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt; &lt;code&gt;Parallel.ForEach&lt;/code&gt;&amp;#x662F;&lt;code&gt;ForEach&lt;/code&gt;&amp;#x7684;&amp;#x5E76;&amp;#x884C;&amp;#x7248;&amp;#xFF0C;&amp;#x8C03;&amp;#x7528;&amp;#x89C4;&amp;#x5219;&amp;#x4E5F;&amp;#x975E;&amp;#x5E38;&amp;#x7B80;&amp;#x5355;&amp;#x3002;&amp;#x4F8B;&amp;#x5982;&amp;#xFF0C;&amp;#x6253;&amp;#x5370;&amp;#x73ED;&amp;#x91CC;&amp;#x6240;&amp;#x6709;&amp;#x7537;&amp;#x751F;&amp;#x7684;&amp;#x6210;&amp;#x7EE9;&amp;#xFF0C;&amp;#x4F7F;&amp;#x7528;&lt;code&gt;Parallel.ForEach&lt;/code&gt;&amp;#x5B9E;&amp;#x73B0;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Parallel.ForEach(students, stu =&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;{&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if (stu.gender == &amp;quot;male&amp;quot;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    {&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Console.WriteLine(stu.score);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    }&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;});&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&amp;#x6BD4;&amp;#x8F83;&lt;/p&gt;
+&lt;p&gt; &amp;#x5173;&amp;#x4E8E;&amp;#x8FD9;&amp;#x4E24;&amp;#x79CD;&amp;#x5E76;&amp;#x884C;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&amp;#x5230;&amp;#x5E95;&amp;#x9700;&amp;#x7528;&amp;#x54EA;&amp;#x4E2A;&amp;#xFF0C;&lt;a href=&quot;https://blogs.msdn.microsoft.com/pfxteam/2010/04/21/when-to-use-parallel-foreach-and-when-to-use-plinq/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&amp;#x8FD9;&amp;#x91CC;&lt;/a&gt;&amp;#x6709;&amp;#x7BC7;&amp;#x6587;&amp;#x7AE0;&amp;#x8BE6;&amp;#x7EC6;&amp;#x5BF9;&amp;#x6BD4;&amp;#x4E86;&amp;#x8FD9;&amp;#x4E24;&amp;#x79CD;&amp;#x89E3;&amp;#x51B3;&amp;#x65B9;&amp;#x6848;&amp;#x7684;&amp;#x9002;&amp;#x7528;&amp;#x573A;&amp;#x666F;&amp;#x3002;&amp;#x6211;&amp;#x81EA;&amp;#x5DF1;&amp;#x4F7F;&amp;#x7528;PLINQ&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x4EC5;&amp;#x7528;&amp;#x4E00;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;&amp;#x5C31;&amp;#x89E3;&amp;#x51B3;&amp;#x4E86;&amp;#x6211;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x5F62;&amp;#x5F0F;&amp;#x5982;&amp;#x4E0B;&amp;#xFF1A;&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var result = list.AsParallel().AsOrdered().Select(x =&amp;gt; DoSomething(x)).ToList();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt; &amp;#x5176;&amp;#x4E2D;&amp;#x7279;&amp;#x522B;&amp;#x8981;&amp;#x6CE8;&amp;#x610F;&amp;#x7684;&amp;#x662F;&amp;#xFF0C;&amp;#x52A0;&amp;#x4E0A;&lt;code&gt;.AsOrdered()&lt;/code&gt;&amp;#x4FDD;&amp;#x8BC1;&amp;#x8FD4;&amp;#x56DE;&amp;#x7ED3;&amp;#x679C;&amp;#x4E2D;result&amp;#x4E0E;&amp;#x8F93;&amp;#x5165;list&amp;#x4E2D;&amp;#x7684;&amp;#x503C;&amp;#x662F;&amp;#x4E00;&amp;#x4E00;&amp;#x5BF9;&amp;#x5E94;&amp;#x7684;&amp;#x3002;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;&amp;#x95EE;&amp;#x9898;&amp;#x63CF;&amp;#x8FF0;&amp;#xFF1A;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x5728;&amp;#x6700;&amp;#x8FD1;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;&amp;#x9879;&amp;#x76EE;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6709;&amp;#x4E00;&amp;#x6BB5;&amp;#x4EE3;&amp;#x7801;&amp;#x903B;&amp;#x8F91;&amp;#x662F;&amp;#x5BF9;&amp;#x4E00;&amp;#x4E2A;&amp;#x6570;&amp;#x7EC4;&amp;#x4E2D;&amp;#x7684;&amp;#x6240;&amp;#x6709;&amp;#x5143;&amp;#x7D20;&amp;#x8C03;&amp;#x7528;&amp;#x76F8;&amp;#x540C;&amp;#x7684;&amp;#x5904;&amp;#x7406;&amp;#x51FD;&amp;#x6570;&amp;#xFF0C;&amp;#x5E76;&amp;#x8FD4;&amp;#x56DE;&amp;#x7ED3;&amp;#x679C;&amp;#xFF0C;&amp;#x4E14;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5904;&amp;#x7406;&amp;#x51FD;&amp;#x6570;&amp;#x8017;&amp;#x65F6;&amp;#x6BD4;&amp;#x8F83;&amp;#x4E45;&amp;#xFF0C;&amp;#x5178;&amp;#x578B;&amp;#x7684;&amp;#x53EF;&amp;#x4EE5;&amp;#x5E76;&amp;#x884C;&amp;#x5316;&amp;#x5904;&amp;#x7406;&amp;#x7684;&amp;#x4F8B;&amp;#x5B50;&amp;#x3002;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="programming" scheme="http://blog.pfchai.com/categories/programming/"/>
+    
+    
+      <category term="优化" scheme="http://blog.pfchai.com/tags/%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="多线程" scheme="http://blog.pfchai.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Python性能分析之cProfile</title>
@@ -514,9 +561,9 @@
       <category term="programming" scheme="http://blog.pfchai.com/categories/programming/"/>
     
     
-      <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
-    
       <category term="源码" scheme="http://blog.pfchai.com/tags/%E6%BA%90%E7%A0%81/"/>
+    
+      <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
     
       <category term="Bottle" scheme="http://blog.pfchai.com/tags/Bottle/"/>
     
@@ -549,9 +596,9 @@
     </summary>
     
     
-      <category term="教程" scheme="http://blog.pfchai.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Hexo" scheme="http://blog.pfchai.com/tags/Hexo/"/>
+    
+      <category term="教程" scheme="http://blog.pfchai.com/tags/%E6%95%99%E7%A8%8B/"/>
     
       <category term="博客" scheme="http://blog.pfchai.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
@@ -615,9 +662,9 @@
       <category term="Hexo" scheme="http://blog.pfchai.com/categories/hexo/"/>
     
     
-      <category term="教程" scheme="http://blog.pfchai.com/tags/%E6%95%99%E7%A8%8B/"/>
-    
       <category term="Hexo" scheme="http://blog.pfchai.com/tags/Hexo/"/>
+    
+      <category term="教程" scheme="http://blog.pfchai.com/tags/%E6%95%99%E7%A8%8B/"/>
     
       <category term="博客" scheme="http://blog.pfchai.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
@@ -648,9 +695,9 @@
     </summary>
     
     
-      <category term="Django" scheme="http://blog.pfchai.com/tags/Django/"/>
-    
       <category term="Python" scheme="http://blog.pfchai.com/tags/Python/"/>
+    
+      <category term="Django" scheme="http://blog.pfchai.com/tags/Django/"/>
     
       <category term="开发" scheme="http://blog.pfchai.com/tags/%E5%BC%80%E5%8F%91/"/>
     
