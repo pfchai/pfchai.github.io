@@ -12,10 +12,12 @@
 
 
 
-  <meta name="description" content="半野生程序员 伪全栈工程师"/>
+  <meta name="description" content="Git高级操作-diff"/>
 
 
 
+
+  <meta name="keywords" content="Git,工具," />
 
 
 
@@ -29,18 +31,19 @@
 
 
 
-<link rel="canonical" href="http://blog.pfchai.com/"/>
+<link rel="canonical" href="http://blog.pfchai.com/2018/09/Git高级操作-diff/"/>
 
 
-<meta name="description" content="半野生程序员 伪全栈工程师">
-<meta property="og:type" content="website">
-<meta property="og:title" content="pfchai's blog">
-<meta property="og:url" content="http://blog.pfchai.com/index.html">
+<meta name="description" content="&amp;#x57FA;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#xFF1A;1234567891011121314151617181920212223# &amp;#x67E5;&amp;#x770B;&amp;#x5C1A;&amp;#x672A;&amp;#x6682;&amp;#x5B58;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x66F4;&amp;#x65B0;&amp;#x4E86;&amp;#x54EA;&amp;#x4E9B;&amp;#x90E8;&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git高级操作-diff">
+<meta property="og:url" content="http://blog.pfchai.com/2018/09/Git高级操作-diff/index.html">
 <meta property="og:site_name" content="pfchai's blog">
-<meta property="og:description" content="半野生程序员 伪全栈工程师">
+<meta property="og:description" content="&amp;#x57FA;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#xFF1A;1234567891011121314151617181920212223# &amp;#x67E5;&amp;#x770B;&amp;#x5C1A;&amp;#x672A;&amp;#x6682;&amp;#x5B58;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x66F4;&amp;#x65B0;&amp;#x4E86;&amp;#x54EA;&amp;#x4E9B;&amp;#x90E8;&amp;">
+<meta property="og:updated_time" content="2018-09-09T14:02:20.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pfchai's blog">
-<meta name="twitter:description" content="半野生程序员 伪全栈工程师">
+<meta name="twitter:title" content="Git高级操作-diff">
+<meta name="twitter:description" content="&amp;#x57FA;&amp;#x672C;&amp;#x4F7F;&amp;#x7528;&amp;#xFF1A;1234567891011121314151617181920212223# &amp;#x67E5;&amp;#x770B;&amp;#x5C1A;&amp;#x672A;&amp;#x6682;&amp;#x5B58;&amp;#x7684;&amp;#x6587;&amp;#x4EF6;&amp;#x66F4;&amp;#x65B0;&amp;#x4E86;&amp;#x54EA;&amp;#x4E9B;&amp;#x90E8;&amp;">
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.3.x" />
@@ -89,7 +92,7 @@
 
 
 
-    <title> pfchai's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <title> Git高级操作-diff · pfchai's blog </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -191,14 +194,12 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  <section id="posts" class="posts">
-    
-      
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/09/Git高级操作-diff/">Git高级操作-diff</a>
+          Git高级操作-diff
         
       </h1>
 
@@ -211,14 +212,17 @@
 
     
     
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用："><span class="toc-text">基本使用：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示内容详解"><span class="toc-text">显示内容详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补丁-patch"><span class="toc-text">补丁(patch)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生成补丁文件"><span class="toc-text">生成补丁文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据补丁文件更新"><span class="toc-text">根据补丁文件更新</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
 
     <div class="post-content">
       
-        
-        
-
-        
-          <h2 id="&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;"><a href="#&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;" class="headerlink" title="&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;"></a>&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x4E86;&#x54EA;&#x4E9B;&#x90E8;&#x5206;</span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x4E86;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;</span><br><span class="line">git diff filename</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x6682;&#x5B58;&#x8D77;&#x6765;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x4E0A;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff &#x2013;cached</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x6682;&#x5B58;&#x8D77;&#x6765;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x548C;&#x4E0A;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff &#x2013;cached filename</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x67D0;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff ffd98 b8e7b</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x67D0;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff ffd98:filename b8e7b:filename</span><br><span class="line"></span><br><span class="line"># &#x201C;dev&#x201D; &#x5206;&#x652F;&#x7684;&#x54EA;&#x4E9B;&#x6539;&#x52A8;&#x5E76;&#x4E0D;&#x5B58;&#x5728;&#x4E8E; &#x201C;master&#x201D; &#x4E0A;&#xFF1A;</span><br><span class="line">git diff master..dev</span><br><span class="line"></span><br><span class="line"># &#x4EC5;&#x4EC5;&#x6BD4;&#x8F83;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</span><br><span class="line">git diff --stat</span><br></pre></td></tr></table></figure>
+        <h2 id="&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;"><a href="#&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;" class="headerlink" title="&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;"></a>&#x57FA;&#x672C;&#x4F7F;&#x7528;&#xFF1A;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x4E86;&#x54EA;&#x4E9B;&#x90E8;&#x5206;</span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x66F4;&#x65B0;&#x4E86;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;</span><br><span class="line">git diff filename</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x6682;&#x5B58;&#x8D77;&#x6765;&#x7684;&#x6587;&#x4EF6;&#x548C;&#x4E0A;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff &#x2013;cached</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x5DF2;&#x7ECF;&#x6682;&#x5B58;&#x8D77;&#x6765;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x548C;&#x4E0A;&#x6B21;&#x63D0;&#x4EA4;&#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff &#x2013;cached filename</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x67D0;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff ffd98 b8e7b</span><br><span class="line"></span><br><span class="line"># &#x67E5;&#x770B;&#x67D0;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x67D0;&#x4E2A;&#x6587;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;</span><br><span class="line">git diff ffd98:filename b8e7b:filename</span><br><span class="line"></span><br><span class="line"># &#x201C;dev&#x201D; &#x5206;&#x652F;&#x7684;&#x54EA;&#x4E9B;&#x6539;&#x52A8;&#x5E76;&#x4E0D;&#x5B58;&#x5728;&#x4E8E; &#x201C;master&#x201D; &#x4E0A;&#xFF1A;</span><br><span class="line">git diff master..dev</span><br><span class="line"></span><br><span class="line"># &#x4EC5;&#x4EC5;&#x6BD4;&#x8F83;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;</span><br><span class="line">git diff --stat</span><br></pre></td></tr></table></figure>
 <h2 id="&#x663E;&#x793A;&#x5185;&#x5BB9;&#x8BE6;&#x89E3;"><a href="#&#x663E;&#x793A;&#x5185;&#x5BB9;&#x8BE6;&#x89E3;" class="headerlink" title="&#x663E;&#x793A;&#x5185;&#x5BB9;&#x8BE6;&#x89E3;"></a>&#x663E;&#x793A;&#x5185;&#x5BB9;&#x8BE6;&#x89E3;</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$ git diff 5a255 21112</span><br><span class="line">diff --git a/BACKERS.md b/BACKERS.md</span><br><span class="line">index 38c410d6..5479839a 100644</span><br><span class="line">--- a/BACKERS.md</span><br><span class="line">+++ b/BACKERS.md</span><br><span class="line">@@ -174,11 +174,6 @@ Funds donated via Patreon go directly to support Evan You&apos;s full-time work on Vu</span><br><span class="line">           &lt;img width=&quot;148px&quot; src=&quot;https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/tidelift.png&quot;&gt;</span><br><span class="line">         &lt;/a&gt;</span><br><span class="line">       &lt;/td&gt;</span><br><span class="line">-      &lt;td align=&quot;center&quot; valign=&quot;middle&quot;&gt;</span><br><span class="line">-        &lt;a href=&quot;https://webdock.io/en&quot; target=&quot;_blank&quot;&gt;</span><br><span class="line">-          &lt;img width=&quot;148px&quot; src=&quot;https://raw.githubusercontent.com/vuejs/vuejs.org/master/themes/vue/source/images/webdock.png&quot;&gt;</span><br><span class="line">-        &lt;/a&gt;</span><br><span class="line">-      &lt;/td&gt;</span><br><span class="line">     &lt;/tr&gt;&lt;tr&gt;&lt;/tr&gt;</span><br><span class="line">   &lt;/tbody&gt;</span><br><span class="line"> &lt;/table&gt;</span><br><span class="line">@@ -316,7 +311,10 @@ Funds donated via Patreon go directly to support Evan You&apos;s full-time work on Vu</span><br><span class="line"> - Jake Ingman</span><br><span class="line"> - Barbara Liau</span><br><span class="line"> - 4</span><br><span class="line">+- The Graphic Design School</span><br><span class="line">+- Christian Griffith</span><br><span class="line"> - Jarek Tkaczyk</span><br><span class="line">+- Andrew Davis</span><br><span class="line"> - Sean MacIsaac</span><br><span class="line"> - Xiaojie LI</span><br><span class="line"> - David Hess</span><br><span class="line">@@ -324,13 +322,13 @@ Funds donated via Patreon go directly to support Evan You&apos;s full-time work on Vu</span><br><span class="line"> - Dariusz Jastrz&#x119;bski</span><br><span class="line"> - Ivan Sieder</span><br><span class="line"> - Matt Jones</span><br><span class="line">+- Dave Chenell</span><br><span class="line"> - Duncan J Kenzie</span><br><span class="line"> - Mike Margerum</span><br><span class="line"> - Guy Gavergun</span><br><span class="line"> - Edithvale</span><br><span class="line"> - Intevation GmbH</span><br><span class="line"> - Luiz Eduardo  Tanure Bacelar</span><br><span class="line">-- Chengzhi Yin</span><br><span class="line"> - Zoran Knezevic</span><br><span class="line"> - James Simpson</span><br><span class="line"> - Pascal Germain</span><br></pre></td></tr></table></figure>
 <p>&#x4E0A;&#x8FF0;&#x4E3A;&#x4F7F;&#x7528;diff&#x547D;&#x4EE4;&#x540E;&#x7684;&#x4E00;&#x4E2A;&#x8F93;&#x51FA;&#x793A;&#x4F8B;</p>
 <ul>
@@ -235,413 +239,100 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># &#x5C06;&#x5C1A;&#x672A;&#x6682;&#x5B58;&#x7684;&#x90E8;&#x5206;&#x505A;&#x6210;&#x8865;&#x4E01;&#x6587;&#x4EF6;</span><br><span class="line">git diff &gt; patch</span><br><span class="line"></span><br><span class="line"># &#x5C06;&#x6682;&#x5B58;&#x533A;&#x7684;&#x6587;&#x4EF6;&#x505A;&#x6210;&#x8865;&#x4E01;&#x6587;&#x4EF6;</span><br><span class="line">git diff --cached &gt; patch</span><br></pre></td></tr></table></figure>
 <h3 id="&#x6839;&#x636E;&#x8865;&#x4E01;&#x6587;&#x4EF6;&#x66F4;&#x65B0;"><a href="#&#x6839;&#x636E;&#x8865;&#x4E01;&#x6587;&#x4EF6;&#x66F4;&#x65B0;" class="headerlink" title="&#x6839;&#x636E;&#x8865;&#x4E01;&#x6587;&#x4EF6;&#x66F4;&#x65B0;"></a>&#x6839;&#x636E;&#x8865;&#x4E01;&#x6587;&#x4EF6;&#x66F4;&#x65B0;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># &#x5728;&#x5176;&#x4ED6;&#x673A;&#x5668;&#x4E0A;&#x5BF9;&#x5E94;&#x76EE;&#x5F55;&#x4E0B;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x547D;&#x4EE4;&#x6839;&#x636E;patch&#x6587;&#x4EF6;&#x66F4;&#x65B0;</span><br><span class="line">git apply patch</span><br><span class="line"></span><br><span class="line"># &#x68C0;&#x9A8C;&#x4E00;&#x4E0B;&#x8865;&#x4E01;&#x80FD;&#x5426;&#x5E94;&#x7528;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8F93;&#x51FA;&#xFF0C;&#x90A3;&#x4E48;&#x8868;&#x793A;&#x53EF;&#x4EE5;&#x987A;&#x5229;&#x63A5;&#x53D7;&#x8FD9;&#x4E2A;&#x8865;&#x4E01;</span><br><span class="line">git apply --check patch</span><br><span class="line"></span><br><span class="line"># &#x6709;&#x51B2;&#x7A81;&#x7684;&#x4F1A;&#x751F;&#x6210;.rej&#x6587;&#x4EF6;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x8FD9;&#x4E9B;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x624B;&#x52A8;&#x6253;&#x8865;&#x4E01;&#x3000;</span><br><span class="line">git apply --reject patch</span><br></pre></td></tr></table></figure>
 
-        
       
     </div>
 
     
-
-    
-
-  </article>
-
-    
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/Git高级操作-日志/">Git高级操作-日志</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018年8月13日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
       
-        
-        
-          
-        
 
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>作者: </span>
+      <span>pfchai</span>
+    </p>
+    <p class="copyright-item">
+      <span>来源: </span>
+      <a href="http://blog.pfchai.com">http://blog.pfchai.com</a>
+    </p>
+    <p class="copyright-item">
+      <span>链接: </span>
+      <a href="http://blog.pfchai.com/2018/09/Git高级操作-diff/">http://blog.pfchai.com/2018/09/Git高级操作-diff/</a>
+    </p>
+
+    <p class="copyright-item lincese">
+      
+      本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可
+    </p>
+  </div>
+
+
+
+      
+      
+  <div class="post-reward">
+    <input type="checkbox" name="reward" id="reward" hidden />
+    <label class="reward-button" for="reward">赞赏支持</label>
+    <div class="qr-code">
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/wechat.png" title="wechat">
+        </label>
+      
+      
+        <label class="qr-code-image" for="reward">
+          <img class="image" src="/image/reward/alipay.png" title="alipay">
+        </label>
+      
+    </div>
+  </div>
+
+    
+
+    
+      <footer class="post-footer">
         
-          <p>&#x4F7F;&#x7528;<code>git log</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#xFF0C;<code>git log</code>&#x7684;&#x547D;&#x4EE4;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log [&lt;options&gt;] [&lt;since&gt;..&lt;until&gt;] [[--] &lt;path&gt;...]</span><br></pre></td></tr></table></figure></p>
-          <div class="read-more">
-            <a href="/2018/08/Git高级操作-日志/" class="read-more-link">Read more..</a>
+          <div class="post-tags">
+            
+              <a href="/tags/Git/">Git</a>
+            
+              <a href="/tags/工具/">工具</a>
+            
           </div>
         
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
         
-          <a class="post-link" href="/2018/08/Git基本操作/">Git基本操作</a>
         
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018年8月13日
-        </span>
-      </div>
-    </header>
-
+  <nav class="post-nav">
     
     
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>&#x8BE5;&#x6587;&#x6863;&#x4E3B;&#x8981;&#x662F;&#x7FFB;&#x8BD1;&#x7684;Git&#x5B98;&#x65B9;<a href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">Cheat-Sheet</a></p>
-          <div class="read-more">
-            <a href="/2018/08/Git基本操作/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/08/在C-中使用多线程的一个示例/">在C#中使用多线程的一个示例</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018年8月5日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><strong>&#x95EE;&#x9898;&#x63CF;&#x8FF0;&#xFF1A;</strong></p>
-<p>&#x5728;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x6709;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x662F;&#x5BF9;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x8C03;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#xFF0C;&#x4E14;&#x8FD9;&#x4E2A;&#x5904;&#x7406;&#x51FD;&#x6570;&#x8017;&#x65F6;&#x6BD4;&#x8F83;&#x4E45;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x53EF;&#x4EE5;&#x5E76;&#x884C;&#x5316;&#x5904;&#x7406;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p>
-          <div class="read-more">
-            <a href="/2018/08/在C-中使用多线程的一个示例/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/04/Python性能分析之cProfile/">Python性能分析之cProfile</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017年4月5日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>cProfile&#x662F;Python 2.5&#x4E4B;&#x540E;&#x6807;&#x51C6;&#x7248;Python&#x89E3;&#x91CA;&#x5668;&#x9ED8;&#x8BA4;&#x7684;&#x6027;&#x80FD;&#x5206;&#x6790;&#x5668;&#x3002;cProfile&#x53EF;&#x4EE5;&#x7EDF;&#x8BA1;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x6D88;&#x8017;CPU&#x65F6;&#x95F4;&#xFF0C;&#x540C;&#x65F6;&#x8FD8;&#x63D0;&#x4F9B;&#x5176;&#x4ED6;&#x7EC6;&#x8282;&#xFF0C;&#x5982;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x6B21;&#x6570;&#x7B49;&#x3002;</p>
-          <div class="read-more">
-            <a href="/2017/04/Python性能分析之cProfile/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/12/Hexo中使用图片/">Hexo中使用图片</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年12月11日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>&#x6298;&#x817E;&#x4E86;&#x4E00;&#x4F1A;&#x5982;&#x4F55;&#x7528;&#x4E03;&#x725B;&#x4E91;&#x505A;&#x56FE;&#x5E8A;&#xFF0C;&#x56FE;&#x7247;&#x600E;&#x4E48;&#x90FD;&#x4E0D;&#x80FD;&#x81EA;&#x52A8;&#x4F20;&#x4E0D;&#x5230;&#x4E03;&#x725B;&#x4E91;&#x4E0A;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x4E03;&#x725B;&#x4E91;&#x73B0;&#x5728;&#x7684;bucket&#x4E0E;&#x5916;&#x94FE;&#x5730;&#x5740;&#x4E0D;&#x5339;&#x914D;&#x9020;&#x6210;&#x7684;&#xFF0C;&#x4E5F;&#x4E0D;&#x60F3;&#x518D;&#x82B1;&#x65F6;&#x95F4;&#x6298;&#x817E;&#x4E86;&#xFF0C;&#x5C31;&#x7528;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x628A;&#x56FE;&#x7247;&#x4FDD;&#x5B58;&#x5728;&#x672C;&#x5730;&#x3002;<br>&#x5177;&#x4F53;&#x505A;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x6B65;&#x9AA4;&#xFF0C;2&#x6B65;&#x5C31;&#x641E;&#x597D;</p>
-          <div class="read-more">
-            <a href="/2016/12/Hexo中使用图片/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/12/如何在Github中发送Pull-Request/">如何在Github中发送Pull Request</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年12月7日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Github&#x73B0;&#x5728;&#x662F;&#x8D8A;&#x6765;&#x8D8A;&#x6D41;&#x884C;&#xFF0C;&#x4F46;&#x770B;&#x5230;&#x5468;&#x56F4;&#x592A;&#x591A;&#x4EBA;&#x53EA;&#x4F1A;<code>git clone</code>&#xFF0C;&#x597D;&#x70B9;&#x7684;&#x53EF;&#x4EE5;<code>git push</code>&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x4E5F;&#x4E0D;&#x7BA1;&#x4E86;&#x3002;&#x6211;&#x4E00;&#x76F4;&#x76F8;&#x4FE1;&#xFF0C;&#x597D;&#x7684;&#x9879;&#x76EE;&#x662F;&#x9700;&#x8981;&#x4E00;&#x76F4;&#x7EF4;&#x62A4;&#x4E0D;&#x65AD;&#x91CD;&#x6784;&#x7684;&#xFF0C;&#x4F18;&#x79C0;&#x7684;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x662F;&#x5E0C;&#x671B;&#x66F4;&#x591A;&#x4EBA;&#x53C2;&#x4E0E;&#x8FDB;&#x6765;&#x7684;&#x3002;<br>&#x6211;&#x867D;&#x8BF4;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#xFF0C;&#x4F46;&#x5F88;&#x591A;&#x5177;&#x4F53;&#x7EC6;&#x8282;&#x4E5F;&#x4E0D;&#x660E;&#x767D;&#xFF0C;&#x63D0;&#x4EA4;PR&#x65F6;&#x4E00;&#x76F4;&#x62C5;&#x5FC3;&#x56E0;&#x4E3A;&#x81EA;&#x5DF1;&#x7684;&#x4E0D;&#x89C4;&#x8303;&#x7ED9;&#x5176;&#x4ED6;&#x4EBA;&#x9020;&#x6210;&#x56F0;&#x6270;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x6211;&#x4E0D;&#x6562;&#x53C2;&#x4E0E;&#x8FDB;&#x53BB;&#xFF0C;&#x4E0D;&#x6562;&#x63D0;&#x4EA4;PR&#x3002;<br>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x8BB2;&#x5982;&#x4F55;&#x5728;Github&#x4E2D;&#x53D1;&#x9001;PR&#x4EE5;&#x53CA;PR&#x7684;&#x4E00;&#x4E9B;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF0C;&#x5E0C;&#x671B;&#x80FD;&#x4E3A;&#x5927;&#x5BB6;&#x63D0;&#x4F9B;&#x70B9;&#x5E2E;&#x52A9;&#x3002;</p>
-          <div class="read-more">
-            <a href="/2016/12/如何在Github中发送Pull-Request/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/10/图像去雾/">图像去雾</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年10月22日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>&#x5237;&#x535A;&#x5BA2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x65E0;&#x610F;&#x4E2D;&#x770B;&#x5230;&#x4E00;&#x7BC7;&#x4ECB;&#x7ECD;&#x56FE;&#x50CF;&#x53BB;&#x96FE;&#x7684;&#x535A;&#x5BA2;&#xFF0C;&#x8BB2;&#x5230;&#x4F55;&#x51EF;&#x660E;&#x7684;&#x300A;Single Image Haze Removal Using Dark Channel Prior&#x300B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#xFF0C;2009&#x5E74;CVPR&#x7684;&#x6700;&#x4F73;&#x8BBA;&#x6587;&#xFF0C;&#x7B80;&#x5355;&#x770B;&#x4E86;&#x4E0B;&#x4ECB;&#x7ECD;&#xFF0C;&#x77AC;&#x95F4;&#x5C31;&#x5BF9;&#x4F5C;&#x8005;&#x4F69;&#x670D;&#x7684;&#x4E94;&#x4F53;&#x6295;&#x5730;&#xFF0C;&#x611F;&#x53F9;&#x8FD9;&#x624D;&#x53EB;&#x505A;&#x7814;&#x7A76;&#x3002;<br>&#x8BBA;&#x6587;&#x300A;Single Image Haze Removal Using Dark Channel Prior&#x300B;&#x53EF;&#x4EE5;&#x5728;<a href="http://kaiminghe.com/cvpr09/index.html">&#x8FD9;&#x91CC;</a>&#x4E0B;&#x8F7D;&#x5230;&#xFF0C;&#x5E76;&#x4E14;&#x91CC;&#x9762;&#x8FD8;&#x6709;&#x8BBA;&#x6587;&#x76F8;&#x5173;&#x7684;&#x5E7B;&#x706F;&#x7247;&#x548C;&#x5176;&#x4ED6;&#x53C2;&#x8003;&#x8BBA;&#x6587;&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
-          <div class="read-more">
-            <a href="/2016/10/图像去雾/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/09/Python-解析-开头的字符串/">Python 解析&#开头的字符串</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年9月18日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>&#x722C;&#x866B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x73B0;&#x7F51;&#x9875;&#x4E2D;&#x597D;&#x591A;&#x4E2D;&#x6587;&#x90FD;&#x662F;&#x7528;&amp;#&#x5F00;&#x5934;&#x7684;&#x4E00;&#x4E32;&#x5B57;&#x7B26;&#x8868;&#x793A;&#xFF0C;&#x641E;&#x4E0D;&#x61C2;&#x662F;&#x4EC0;&#x4E48;&#x7F16;&#x7801;&#xFF0C;&#x76F4;&#x5230;&#x770B;&#x5230;&#x77E5;&#x4E4E;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;<a href="http://zhihu.com/question/21390312/answer/18091465">&#x56DE;&#x7B54;</a>&#x3002;<br>&#x5F15;&#x7528;&#x539F;&#x4F5C;&#x8005;&#x7684;&#x8BDD;&#xFF0C;&#x8FD9;&#x4E00;&#x4E32;&#x5B57;&#x7B26;&#x662F;HTML&#x3001;XML&#x7B49;SGML&#x7C7B;&#x8BED;&#x8A00;&#x7684;&#x8F6C;&#x4E49;&#x5E8F;&#x5217;&#xFF0C;&#x4E0D;&#x662F;&#x7F16;&#x7801;&#x3002;&#x800C;&#x4EE5;<code>&amp;#</code>&#x5F00;&#x5934;&#x7684;&#x53EB;numeric character reference&#xFF08;NCR&#xFF09;&#xFF0C;<code>&amp;#</code>&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8DDF;&#x5341;&#x8FDB;&#x5236;&#x6570;&#x5B57;&#x6216;&#x662F;&#x4EE5;<code>x</code>&#x5F00;&#x5934;&#x7684;16&#x8FDB;&#x5236;&#x6570;&#x5B57;&#xFF0C;&#x6570;&#x5B57;&#x4E3A;&#x76EE;&#x6807;&#x5B57;&#x7B26;&#x7684;Unicode code point&#xFF0C;&#x5E76;&#x4EE5;<code>&#xFF1B;</code>&#x7ED3;&#x675F;&#x3002;&#x5177;&#x4F53;&#x7684;&#x89E3;&#x91CA;&#x53EF;&#x4EE5;&#x770B;<a href="http://zhihu.com/question/21390312/answer/18091465">&#x539F;&#x7B54;&#x6848;</a>&#x6216;&#x662F;&#x81EA;&#x884C;&#x641C;&#x7D22;&#x3002;</p>
-          <div class="read-more">
-            <a href="/2016/09/Python-解析-开头的字符串/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/08/Clojure-爬虫：抓取花瓣网图片/">Clojure 爬虫：抓取花瓣网图片</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2016年8月28日
-        </span>
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>&#x6700;&#x8FD1;&#x521A;&#x770B;&#x5B8C;&#x300A;Clojure&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x300B;&#xFF0C;&#x4E66;&#x4E0A;&#x7684;&#x4F8B;&#x5B50;&#x90FD;&#x80FD;&#x770B;&#x61C2;&#xFF0C;&#x4F46;&#x8981;&#x5F00;&#x59CB;&#x7528;Clojure&#x8FD8;&#x662F;&#x6709;&#x70B9;&#x4E0D;&#x77E5;&#x9053;&#x600E;&#x4E48;&#x4E0B;&#x624B;&#xFF0C;&#x60F3;&#x5199;&#x4E2A;&#x5C0F;&#x7A0B;&#x5E8F;&#x7EC3;&#x7EC3;&#x624B;&#x3002;&#x4E4B;&#x524D;&#x7528;Python&#x5199;&#x8FC7;&#x4E00;&#x4E2A;&#x6293;&#x53D6;&#x82B1;&#x74E3;&#x7F51;&#x7F8E;&#x5973;&#x753B;&#x677F;&#x4E0B;&#x56FE;&#x7247;&#x7684;&#x5C0F;&#x722C;&#x866B;&#xFF0C;&#x722C;&#x866B;&#x8FC7;&#x7A0B;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;&#x6D89;&#x53CA;&#x767B;&#x5F55;&#x9A8C;&#x8BC1;&#x6216;&#x662F;&#x53CD;&#x722C;&#x866B;&#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x7528;&#x6765;&#x719F;&#x6089;&#x65B0;&#x8BED;&#x8A00;&#x975E;&#x5E38;&#x5408;&#x9002;&#xFF0C;&#x5C31;&#x6709;&#x4E86;&#x8FD9;&#x4E2A;Clojure&#x7248;&#x7684;&#x722C;&#x866B;&#x3002;</p>
-<p>&#x6211;&#x7528;Python&#x7684;&#x5B9E;&#x73B0;&#x53EF;&#x4EE5;&#x770B;&#x6211;&#x4E4B;&#x524D;&#x7684;<a href="http://www.cnblogs.com/nan86150/p/4272452.html">&#x535A;&#x5BA2;</a>&#x3002;</p>
-          <div class="read-more">
-            <a href="/2016/08/Clojure-爬虫：抓取花瓣网图片/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
-    
-      <a class="next" href="/page/2/">
-        <span class="next-text">Next</span>
+      <a class="next" href="/2018/08/Git高级操作-日志/">
+        <span class="next-text nav-default">Git高级操作-日志</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
+
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>  
       </main>
@@ -713,6 +404,28 @@
     </div>
 
     
+  
+
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.pfchai.com/2018/09/Git高级操作-diff/';
+        this.page.identifier = '2018/09/Git高级操作-diff/';
+        this.page.title = 'Git高级操作-diff';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//chais-blog.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+
 
 
     
